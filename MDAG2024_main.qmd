@@ -1,0 +1,108 @@
+---
+title: "**biplotEZ**"
+subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**"
+#author: <a href="https://github.com/MuViSU" target="_blank">https://github.com/MuViSU</a>
+format: 
+  revealjs:
+    self-contained: true
+    theme: [serif, MDAG_biplotEZ.scss]
+    slide-number: true
+    logo: logo.png
+    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
+title-slide-attributes: 
+  data-background-color: rgb(183,153,98)
+  data-background-image: "SU_vertical.jpg"
+  data-background-size: 15%
+  data-background-opacity: "0.9"
+  data-background-position: 95% 90%
+---
+
+```{r setup}
+#| include: false
+
+library(knitr)
+options(htmltools.dir.version = FALSE, tibble.width = 45)
+opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  message = FALSE, 
+  error=FALSE, 
+  comment = "#",
+  fig.align = 'center', 
+  fig.retina = 5,
+  out.width = "80%",
+  fig.show = 'hold',
+  cache = FALSE
+)
+
+# libraries
+library(biplotEZ)
+
+```
+## biplotEZ team
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+![Prof Sugnet Lubbe (SU)](photos\SL.jpg)
+![Prof. Niël le Roux](photos\NJLR.jpg)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+![Dr Johané Nienkemper-Swanepoel (SU)](photos\JNS.jpg)
+![Dr Raeesa Ganey (Wits)](photos\RG.jpg)
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+![Ruan Buys (SU)](photos\RB.jpg)
+![Zoë-Mae Adams (SU)](photos\ZA.jpg)
+![Peter Manefeldt (Mcom)](photos\PM.jpg)
+:::
+
+::: {.column width="5%"}
+:::
+
+## Outline
+
+::: {.column width="45%"}
+-   <strong style="color: #61223b"> Session 1: Introduction to biplots </strong>
+    -   Introduction to biplots
+    -   PCA biplot
+    -   Getting started: biplotEZ
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+-   <strong style="color: #61223b"> Session 2: Other types of biplots </strong>
+    -   Canonical Variate Analysis biplots
+    -   CVA biplot with biplotEZ
+:::
+
+## Introduction
+
+Sugnet slides
+
+## PCA
+
+Raeesa and Ruan slides
+
+## CVA
+
+Peter and Zoë slides
+
+## CA
+
+Johané slides
+
+## Other and conclusion
+
+Sugnet slides

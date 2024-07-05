@@ -1,0 +1,45 @@
+---
+title: "**biplotEZ**"
+subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**"
+#author: <a href="https://github.com/MuViSU" target="_blank">https://github.com/MuViSU</a>
+format: 
+  revealjs:
+    self-contained: true
+    theme: [serif, MDAG_biplotEZ.scss]
+    slide-number: true
+    logo: logo.png
+    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
+title-slide-attributes: 
+  data-background-color: rgb(183,153,98)
+  data-background-image: "SU_vertical.jpg"
+  data-background-size: 15%
+  data-background-opacity: "0.9"
+  data-background-position: 95% 90%
+---
+
+```{r setup}
+#| include: false
+
+library(knitr)
+options(htmltools.dir.version = FALSE, tibble.width = 45)
+opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  message = FALSE, 
+  error=FALSE, 
+  comment = "#",
+  fig.align = 'center', 
+  fig.retina = 5,
+  out.width = "80%",
+  fig.show = 'hold',
+  cache = FALSE
+)
+
+# libraries
+library(biplotEZ)
+
+```
+
+## CA
+
+Johané slides
