@@ -7,6 +7,7 @@ format:
     self-contained: true
     theme: [serif, statcon.scss]
     slide-number: true
+    logo: logo.png
     footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
 title-slide-attributes: 
   data-background-color: rgb(183,153,98)
@@ -38,28 +39,24 @@ opts_chunk$set(
 library(biplotEZ)
 
 ```
-## Presenters
-::: {layout="[45,-5,45]"}
-![Dr Raeesa Ganey (Wits)](RG.jpg)
 
-![Dr Johané Nienkemper-Swanepoel (SU)](JNS.jpg)
+## biplotEZ team
+
+![Prof Sugnet Lubbe (SU)](photos\SL.jpg)
+
+![Prof. Niël le Roux](photos\NJLR.jpg)
+
+![Dr Johané Nienkemper-Swanepoel (SU)](photos\JNS.jpg)
+
+![Dr Raeesa Ganey (Wits)](photos\RG.jpg)
+
+![Ruan Buys (SU)](photos\RB.jpg)
+
+![Zoë-Mae Adams (SU)](photos\ZA.jpg)
+
+![Peter Manefeldt (Mcom)](photos\PM.jpg)
 :::
 
-## Meet the Team (SU)
-::: {layout="[1,1,1]"}
-![Prof. Niël le Roux](NJLR.jpg)
-
-![Prof. Sugnet Lubbe](SL.png)
-
-![Dr Carel van der Merwe](CJVM.jpg)
-:::
-
-## Meet the Team (SU students)
-::: {layout="[25,-15,25]"}
-![Zoë-Mae Adams (PhD)](ZA.jpg)
-
-![Ruan Buys (MComm)](RB.jpg)
-:::
 
 ## Outline
 
@@ -91,7 +88,7 @@ library(biplotEZ)
 ## Scatterplot of 2 variables
 
 ::: {layout="[[1],[3,1]]"}
-![](Scatterplot%201.png){height="500"} ![](Table%201.png){height="500"}
+![](figures\Scatterplot 1.png){height="500"} ![](figures\Table 1.png){height="500"}
 :::
 
 ## Biplots
@@ -168,7 +165,7 @@ X
 :::
 
 ::: {.column width="50%"}
-![](Data_in3d.png){height="300,fig-align=\"center\""}
+![](figures\Data_in3d.png){height="300,fig-align=\"center\""}
 :::
 :::
 
@@ -189,7 +186,7 @@ The aim is to seek an $r$-dimensional plane that contains the points whose coord
 
 ::: {.column width="40%"}
 ::: fragment
-![](Pointsonplane.png){height="400,fig-align=\"center\""}
+![](figures\Pointsonplane.png){height="400,fig-align=\"center\""}
 :::
 :::
 :::
@@ -213,7 +210,7 @@ A standard result when $r=2$ from \citep{gower1995biplots} is that the row vecto
 
 ::: {.column width="40%"}
 ::: fragment
-![](points_in2d.png){fig-align="center"}
+![](figures\points_in2d.png){fig-align="center"}
 :::
 :::
 :::
@@ -222,7 +219,7 @@ A standard result when $r=2$ from \citep{gower1995biplots} is that the row vecto
 
 The columns of ${\bf{X}}$ are approximated by the first two rows of ${\bf{V}}$, which now represent the axes for each variable.
 
-![](points_with_vectors.png){fig-align="center"}
+![](figures\points_with_vectors.png){fig-align="center"}
 
 ## Calibrated biplot axes
 
@@ -238,13 +235,13 @@ From the data, $p = 3$ therefore, a two-dimensional hyperplane is constructed pe
 
 The intersection of $\mathscr{L}$ and $\mathscr{N}$ is an $(r-1)$-dimensional intersection space, which in this case will be indicated by a line. All the points on this intersection line in $\mathscr{L}$ will predict the value for $\mu$ for the $X_1$-axis.
 
-![](First_Nplane.png){fig-align="center"}
+![](figures\First_Nplane.png){fig-align="center"}
 
 ## Second plane
 
 The plane $\mathscr{N}$ is shifted orthogonally through another value on $X_1$ and all the points on the intersection line of $\mathscr{L}$ and $\mathscr{N}$ will predict that value that the plane goes through.
 
-![](Second_Nplane.png){fig-align="center"}
+![](figures\Second_Nplane.png){fig-align="center"}
 
 ## Intersection lines
 
@@ -258,7 +255,7 @@ To facilitate orthogonal projection onto the axis, similar to an ordinary scatte
 :::
 
 ::: {.column width="40%"}
-![](Intersection_lines.png){fig-align="center"}
+![](figures\Intersection_lines.png){fig-align="center"}
 :::
 :::
 
@@ -302,9 +299,9 @@ library(magrittr)
 -   To set [\|\>]{style="font-family: 'Noto Sans Mono', monospace"} as your default, change the keyboard shortcut **Ctrl-Shift-M**:
 
 ::: {layout-ncol="2"}
-![](GlobalOptions.jpg){width="10%"}
+![](figures\GlobalOptions.jpg){width="10%"}
 
-![](GlobalOptionsPipe.jpg){width="25%"}
+![](figures\GlobalOptionsPipe.jpg){width="25%"}
 :::
 :::
 
@@ -322,12 +319,12 @@ lsf.str("package:biplotEZ")
 -   Start with [biplot()]{style="font-family: 'Noto Sans Mono', monospace"}.
 -   Use the preferred biplot: [PCA()]{style="font-family: 'Noto Sans Mono', monospace"} or [CVA()]{style="font-family: 'Noto Sans Mono', monospace"}, available in current version.
     -   Format [samples()]{style="font-family: 'Noto Sans Mono', monospace"} and [axes()]{style="font-family: 'Noto Sans Mono', monospace"}.
-    -   Add [alpha.bags()]{style="font-family: 'Noto Sans Mono', monospace"} or [concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"}.
+    -   Add [alpha.bags()]{style="font-family: 'Noto Sans Mono', monospace"} or [ellipses()]{style="font-family: 'Noto Sans Mono', monospace"}.
     -   Add a [legend.type()]{style="font-family: 'Noto Sans Mono', monospace"}.
 -   To visualise, end with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}.
 :::
 
-Use pipe ( \|\> ) between each subsequent function. The order of [samples(), axes(), alpha.bags(), concentration.ellipse() and legend.type()]{style="font-family: 'Noto Sans Mono', monospace"} can be interchanged.
+Use pipe ( \|\> ) between each subsequent function. The order of [samples(), axes(), alpha.bags(), ellipses() and legend.type()]{style="font-family: 'Noto Sans Mono', monospace"} can be interchanged.
 
 ## [biplot()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">arguments</font>
 
@@ -602,7 +599,7 @@ biplot(iris[,1:4]) |> PCA() |> axes(which = c(1,2,3), col = "black") |> plot()
 #displaying selected axes
 #changing label direction and distance from plot
 biplot(iris[,1:4]) |> PCA() |> axes(which = c(1,2,4), col = "black", 
-  label.dir = "Paral", label.dist = 1) |> plot()
+  label.dir = "Paral") |> plot()
 ```
 
 ## [PCA()]{style="font-family: 'Noto Sans Mono', monospace"}, [axes()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
@@ -626,8 +623,7 @@ biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.co
 ```{r, echo = TRUE, eval = TRUE}
 #changing tick mark positions
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.col = 
-  "black", tick.size = 1.2, ticks = 5, tick.label.pos = c(2,2,3,1), tick.label.offset = 
-  c(0.4,0.4,0.4,0.8), lwd = 1.2) |> plot()
+  "black", tick.size = 1.2, ticks = 5, tick.label.side = c("below","above","above","below"), lwd = 1.2) |> plot()
 ```
 
 ## [PCA()]{style="font-family: 'Noto Sans Mono', monospace"}, [axes()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
@@ -635,9 +631,7 @@ biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.co
 ```{r, echo = TRUE, eval = TRUE}
 #changing axes names
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.col = 
-  "black", tick.size = 1.2, lwd = 1.2, ticks = 7, tick.label.pos = c(2,2,3,1), 
-  tick.label.offset = c(0.4,0.4,0.4,0.8), ax.names = c("A", "B", "","D"), 
-  label.dist = 1, label.dir = "Hor") |> plot()
+  "black", tick.size = 1.2, lwd = 1.2, ticks = 7, tick.label.side = c("below","above","above","below"), ax.names = c("A", "B", "","D"), label.dir = "Hor") |> plot()
 ```
 ## [PCA()]{style="font-family: 'Noto Sans Mono', monospace"}, [axes()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
 
@@ -652,16 +646,14 @@ biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.co
 ```{r, echo = TRUE, eval = TRUE}
 #horizontal translation of axes
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.col = 
-  "black", tick.label.pos = c(2,2,3,1), tick.label.offset = c(0.4,0.4,0.4,0.8),
-  orthogx = 2) |> plot()
+  "black", tick.label.side = c("above","below","below","above"),  orthogx = 2) |> plot()
 ```
 ## [PCA()]{style="font-family: 'Noto Sans Mono', monospace"}, [axes()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
 
 ```{r, echo = TRUE, eval = TRUE}
 #vertical translation of axes
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> axes(col = "black", tick.col = 
-  "black", tick.label.pos = c(2,2,3,1), tick.label.offset = c(0.4,0.4,0.4,0.8),
-  orthogy = -2) |> plot()
+  "black", tick.label.side = c("above","below","below","above"), orthogy = -2) |> plot()
 ```
 
 ## [alpha.bags()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">arguments</font>
@@ -738,10 +730,10 @@ biplot (iris[,1:4],group.aes = iris[,5]) |> PCA() |> alpha.bags(alpha = c(0.99,0
   lty = c(1,2,3), col = c("purple","magenta","blue")) |> samples(col = "grey")|> plot()
 ```
 
-## [concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">arguments</font>
+## [ellipses()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">arguments</font>
 
 ```{r, echo = FALSE, eval = TRUE}
-args(concentration.ellipse)
+args(ellipses)
 ```
 
 | Argument                                                  | Description                                                                               |
@@ -754,10 +746,10 @@ args(concentration.ellipse)
 
 : {tbl-colwidths="\[30,70\]"}
 
-## [concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">arguments</font>
+## [ellipses()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">arguments</font>
 
 ```{r, echo = FALSE, eval = TRUE}
-args(concentration.ellipse)
+args(ellipses)
 ```
 
 | Argument                                                               | Description            |
@@ -769,38 +761,38 @@ args(concentration.ellipse)
 
 : {tbl-colwidths="\[30,70\]"}
 
-## [concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">values</font>
+## [ellipses()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">values</font>
 
 ```{r, echo = FALSE, eval = TRUE}
-out <- biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> concentration.ellipse(kappa = 2) 
+out <- biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> ellipses(kappa = 2) 
 str(out)
 ```
 
-## [PCA(),concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
+## [PCA(),ellipses()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
 
 ```{r, echo = TRUE, eval = TRUE, results = "hide"}
 #one kappa ellipse per group
-biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> concentration.ellipse(kappa = 2) |> plot()
+biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> ellipses(kappa = 2) |> plot()
 ```
-## [PCA(),concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
+## [PCA(),ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
 
 ```{r, echo = TRUE, eval = TRUE, results = "hide"}
 #chaning the degrees of freedom for the kappa value calculation using alpha
-biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> concentration.ellipse(alpha = 0.95,
+biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> ellipses(alpha = 0.95,
   df = 2) |> plot()
 ```
-## [PCA(),concentration.ellipse()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
+## [PCA(),ellipses()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
 
 ```{r, echo = TRUE, eval = TRUE, results = "hide"}
 #three kappa ellipses per group with different line types per kappa value
-biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> concentration.ellipse(kappa = c(2,3,4),
+biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> ellipses(kappa = c(2,3,4),
   lty = c(1,2,3)) |> plot()
 ```
-## [PCA(),concentration.ellipse(), alpha.bags()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
+## [PCA(),ellipses(), alpha.bags()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"}
 
 ```{r, echo = TRUE, eval = TRUE, results = "hide"}
 #one alpha bag and kappa ellipse per group
-biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> concentration.ellipse(kappa = 2.45, 
+biplot (iris[,1:4]) |> PCA(group.aes = iris[,5]) |> ellipses(kappa = 2.45, 
   lty = 2) |> alpha.bags(alpha = 0.95) |> plot()
 ```
 
@@ -830,7 +822,7 @@ biplot (iris[,1:4], group.aes = iris[,5], Title = "Test biplot") |> PCA() |>
 
 ```{r, echo = TRUE, eval = TRUE, results = "hide"}
 #include legend for alpha bags and kappa ellipses
-biplot (iris[,1:4]) |> PCA(group.aes=iris[,5]) |> concentration.ellipse(kappa = 2.45,
+biplot (iris[,1:4]) |> PCA(group.aes=iris[,5]) |> ellipses(kappa = 2.45,
   lty = 2) |> alpha.bags(alpha = 0.95) |> legend.type(bags = TRUE, ellipses = TRUE) |> plot()
 ```
 ## [legend.type()]{style="font-family: 'Noto Sans Mono', monospace"}
@@ -840,7 +832,7 @@ biplot (iris[,1:4]) |> PCA(group.aes=iris[,5]) |> concentration.ellipse(kappa = 
 #| column: page
 
 #include legend in a separate plot
-biplot (iris[,1:4]) |> PCA(group.aes=iris[,5]) |> concentration.ellipse(kappa = 2.45, 
+biplot (iris[,1:4]) |> PCA(group.aes=iris[,5]) |> ellipses(kappa = 2.45, 
   lty = 2) |> alpha.bags(alpha = 0.95) |> legend.type(bags = TRUE, ellipses = TRUE, 
   new = TRUE) |> plot()
 ```
@@ -919,7 +911,7 @@ Diabetes
 ## CVA Biplot
 
 ```{r}
-biplot(Diabetes[,1:5], group.aes = Diabetes[,6]) |> CVA() |> axes(label.dist = 0.2) |>  plot()
+biplot(Diabetes[,1:5], classes = Diabetes[,6]) |> CVA() |> axes() |>  plot()
 ```
 
 
@@ -954,8 +946,8 @@ args(CVA)
 ## [CVA()]{style="font-family: 'Noto Sans Mono', monospace"} with [plot()]{style="font-family: 'Noto Sans Mono', monospace"} - <font size="8">groups</font>
 
 ```{r, echo = TRUE, eval = TRUE}
-biplot(Diabetes[,3:5], group.aes = Diabetes[,6]) |> CVA() |>  axes(tick.label.pos
-  = c(1,2,1,4), tick.label.offset = c(0.7,0.2,0.4,1), label.dist = 0.2) |> plot()
+biplot(Diabetes[,3:5], classes = Diabetes[,6]) |> CVA() |>  axes(tick.label.side
+  = c("below","above","below","above")) |> plot()
 ```
 
 ## Thank you
