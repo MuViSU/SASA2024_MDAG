@@ -1,6 +1,6 @@
 ---
 title: "**biplotEZ**"
-subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**"
+subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**SASA 2024**"
 #author: <a href="https://github.com/MuViSU" target="_blank">https://github.com/MuViSU</a>
 format: 
   revealjs:
@@ -42,8 +42,322 @@ library(biplotEZ)
 
 ## Introduction
 
-Sugnet slides
+The **biplotEZ** package aims to provide users with *EZier* software to construct biplots.
 
-## Other and conclusion
+. .
 
-Sugnet slides
+*What is a biplot?*
+
+Visualisation of multi-dimensional data in 2 or 3 dimensions.
+
+. .
+
+*A brief history of biplots and **biplotEZ***
+
+## History (1)
+
+1971
+
+Gabriel, K.R., The biplot graphic display of matrices with application to principal component analysis. *Biometrika*, 58(3), pp.453-467.
+
+1976
+
+Prof Niël J le Roux presents a seminar on biplots.
+
+<img src="photos\NJLR.jpg" alt="Photo NJ_hist"/>
+
+## History (2)
+
+1996
+
+John Gower publish **Biplots** with David Hand.
+
+<img src="figures\GowerHand.jpg" alt="Photo GH_hist" width="5%"/>
+
+Prof le Roux introduces a Masters module on Biplots (Multidimensional scaling).
+
+Rika Cilliers obtains her Masters on biplots for socio-economic progress under Prof le Roux.
+
+## History (3)
+
+1997
+
+![](figures/Rlogo.jpg){width="33"} SASA conference paper: S-PLUS FUNCTIONS FOR INTERACTIVE LINEAR AND NON-LINEAR BIPLOTS by SP van Blerk, NJ le Roux & S Gardner.
+
+2001
+
+Sugnet Gardner (Lubbe) obtains her PhD on biplots under Prof le Roux.
+
+<img src="photos\SL.jpg" alt="Photo SL_hist" width="20%"/>
+
+
+## History (4)
+
+2001
+
+Louise Wood obtains her Masters on biplots for socio-economic development under Prof le Roux.
+
+2003
+
+Adele Bothma obtains her Masters on biplot for school results under Prof le Roux.
+
+2007
+
+Idele Walters obtains her Masters on biplots for exploring the gender gap under Prof le Roux.
+
+
+## History (5)
+
+2008
+
+Ryan Wedlake obtains his Masters on robust biplots under Prof le Roux.
+
+2009
+
+![](figures/Rlogo.jpg){width="33"}  BiplotGUI for Interactive Biplots, Anthony le Grange.
+
+2010
+
+André Mostert obtains his Masters on biplots in industry under Prof le Roux.
+
+## History (6)
+
+2011
+
+John Gower, Sugnet Lubbe and Niël le Roux publish **Understanding Biplots**.
+
+<img src="figures\UB.jpg" alt="Photo UB_hist" width="10%"/>
+
+![](figures/Rlogo.jpg){width="33"} R package UBbipl developed with the book, but never published.
+
+## History (7)
+
+2013
+
+Hilmarie Brand obtain her Masters on PCA and CVA biplots under Prof le Roux.
+
+2014
+
+Opeoluwe Oyedele obtains her PhD on Partial Least Squares Biplots under Sugnet Lubbe.
+
+2015
+
+Ruan Rossouw obtains his PhD on using biplots for multivariate process monitoring under Prof le Roux.
+
+2016
+
+Ben Gurr obtains his Masters on biplots for crime data under Prof le Roux.
+
+## History (8)
+
+2019
+
+Johané Nienkemper-Swanepoel obtains her PhD on MCA biplots under Prof le Roux and Sugnet Lubbe.
+
+<img src="photos\JNS.jpg" alt="Photo JN_hist" width="30%"/>
+
+Carel van der Merwe obtains his PhD using biplots. Carel supervises 4 Master's projects on biplots.
+
+-   Justin Perrang, Francesca van Niekerk, David Rodwell, Delia Sandilands
+
+## History (9)
+
+2020
+
+Raeesa Ganey obtains her PhD on Principal Surface Biplots under Sugnet Lubbe.
+
+<img src="photos\RG.jpg" alt="Photo RG_hist" width="15%"/>
+
+André Mostert obtains his PhD on multidimensional scaling for identification of contributions to out of control multivariate processes under Sugnet Lubbe.
+
+## History (10)
+
+2020
+
+Adriaan Rowen obtains his Master's using biplots to understand black-box machine learning models.
+
+2022
+
+Zoë-Mae Adams obtains her Masters on biplots in sentiment classification under Johané Nienkemper-Swanepoel.
+
+<img src="photos\ZA.jpg" alt="Photo ZA_hist" width="15%"/>
+
+## History (11)
+
+2023
+
+![](figures/Rlogo.jpg){width="33"}  bipl5 for Exploding Biplots, Ruan Buys.
+
+2024
+
+Ruan Buys obtains his Masters on Exploding biplots under Carel van der Merwe.
+
+<img src="photos\RB.jpg" alt="Photo RB_hist" width="15%"/>
+
+
+## History (12)
+
+2024
+
+Adriaan Rowen to submit his PhD using biplots to understand black-box machine learning models.
+
+Peter Manefeldt to submit his Masters using multidimensional scaling for interpretability of random forest models.
+
+<img src="photos\PM.jpg" alt="Photo PM_hist" width="10%"/>
+
+## The Team
+
+::: masonry
+::: item
+<img src="photos\SL.jpg" alt="Photo 1"/>
+:::
+
+::: item
+<img src="photos\NJLR.jpg" alt="Photo 2"/>
+:::
+
+::: item
+<img src="photos\JNS.jpg" alt="Photo 3"/>
+:::
+
+::: item
+<img src="photos\RG.jpg" alt="Photo 4"/>
+:::
+
+::: item
+<img src="photos\RB.jpg" alt="Photo 5"/>
+:::
+
+::: item
+<img src="photos\ZA.jpg" alt="Photo 6"/>
+:::
+
+::: item
+<img src="photos\PM.jpg" alt="Photo 7"/>
+:::
+:::
+
+```{=html}
+<style>
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.item {
+  break-inside: avoid;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+}
+</style>
+```
+## More biplots
+
+-   CVA biplots for two classes
+-   Regression biplot
+-   Spline biplot
+
+## CVA biplots for two classes
+
+Canonical space of dimension 1.
+
+Solve $\mathbf{BM=WM\Lambda}$ where $\mathbf{M} = \begin{bmatrix}
+                      \mathbf{m}_1 & \mathbf{M}_2\\
+             \end{bmatrix}$
+
+$$
+\bar{\mathbf{Y}} = \bar{\mathbf{X}} \mathbf{M} = \begin{bmatrix}
+                                  \bar{y}_{11} & 0      & \dots & 0 \\
+                                  \vdots       & \vdots &       & \vdots\\
+                                  \bar{y}_{K1} & 0      & \dots & 0 \\
+                                    \end{bmatrix}
+$$
+
+$$
+\mathbf{\Lambda} = diag(\lambda, 0, ..., 0)
+$$ Total squared reconstruction error for means: $TSREM = tr\{ (\bar{\mathbf{X}}-\hat{\bar{\mathbf{X}}})(\bar{\mathbf{X}}-\hat{\bar{\mathbf{X}}})'\} = 0$
+
+Total squared reconstruction error for samples: $TSRES = tr\{ ({\mathbf{X}}-\hat{{\mathbf{X}}})({\mathbf{X}}-\hat{{\mathbf{X}}})'\} >0$
+
+## CVA biplots for two classes
+
+Minimise $TSRES$ (Default option)
+
+Alternative option: Maximise Bhattacharyya distance. For more details see
+
+-   le Roux, N. and Gardner-Lubbe, S., 2024. A two-group canonical variate analysis biplot for an optimal display of both means and cases. *Advances in Data Analysis and Classification*, pp.1-28.
+
+$$
+\mathbf{M}^{-1} = \begin{bmatrix}
+                      \mathbf{m}^{(1)} \\
+                      \mathbf{M}^{(2)}\\
+             \end{bmatrix}
+$$ 
+
+$$
+\mathbf{M}^{(2)}\mathbf{M}^{(2)'} = \mathbf{UDV}'
+$$ 
+
+$$
+\mathbf{M}_{opt} = \begin{bmatrix}
+                      \mathbf{m}_1 & \mathbf{M}_2\mathbf{V}\\
+             \end{bmatrix}
+$$
+
+## CVA biplots for two classes
+
+```{r, CVA2class}
+biplot (iris[51:150,]) |> CVA (classes = iris[51:150,5]) |> means (cex=2) |>
+  axes (label.dir = "Hor", label.line=c(0.8,0,0,0)) |> plot ()
+```
+
+
+## Regression biplot
+
+Any 2D representation of sample points, for example
+
+```{r}
+library (MASS)
+Zmat <- sammon (dist(iris[-102,1:4], method="manhattan"))$points
+```
+
+To create a biplot we need to add information on the variables.
+
+$$
+\mathbf{X}:n \times p
+$$
+
+$$
+\mathbf{Z}:n \times 2
+$$
+
+$$
+\mathbf{X = ZB + E}
+$$
+
+$$
+\mathbf{B = (X'X)}^{-1}\mathbf{X'Z}
+$$
+
+## Regression biplot
+
+```{r, regression}
+biplot (iris[-102,]) |> regress (Zmat) |>  plot ()
+```
+
+
+## Spline biplot
+
+Are linear axes a good representation when the transformation from $\mathbf{X}:n \times p$ to $\mathbf{Z}:n \times 2$ is nonlinear?
+
+Replace linear regression with splines.
+
+## Spline biplot
+
+```{r, splines}
+biplot (iris[-102,1:4]) |> regress (Zmat, axes="splines") |>  plot ()
+```
