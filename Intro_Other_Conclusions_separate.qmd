@@ -42,17 +42,19 @@ library(biplotEZ)
 
 ## Introduction
 
+<br><br>
+
 The **biplotEZ** package aims to provide users with *EZier* software to construct biplots.
 
-. .
+<br><br>
 
 *What is a biplot?*
 
 Visualisation of multi-dimensional data in 2 or 3 dimensions.
 
-. .
+<br><br>
 
-A brief history of biplots and **biplotEZ**
+A brief history of biplots and **biplotEZ**.
 
 ## History (1)
 
@@ -60,11 +62,15 @@ A brief history of biplots and **biplotEZ**
 
 Gabriel, K.R., The biplot graphic display of matrices with application to principal component analysis. *Biometrika*, 58(3), pp.453-467.
 
+<br>
+
 1976
 
 Prof Niël J le Roux presents a seminar on biplots.
 
-<img src="photos\NJLR.jpg" alt="Photo NJ_hist"/>
+<img src="photos\NJLR.jpg" alt="Photo NJ_hist" width="3%"/>
+
+<br> <br> <br> <br> <br>
 
 ## History (2)
 
@@ -72,93 +78,79 @@ Prof Niël J le Roux presents a seminar on biplots.
 
 John Gower publish **Biplots** with David Hand.
 
-<img src="figures\GowerHand.jpg" alt="Photo GH_hist" width="5%"/>
+<img src="figures\GowerHand.jpg" alt="Photo GH_hist" width="12%"/>
 
 Prof le Roux introduces a Masters module on Biplots (Multidimensional scaling).
 
 Rika Cilliers obtains her Masters on biplots for socio-economic progress under Prof le Roux.
 
-## History (3)
+<br>
 
 1997
 
 ![](figures/Rlogo.jpg){width="33"} SASA conference paper: S-PLUS FUNCTIONS FOR INTERACTIVE LINEAR AND NON-LINEAR BIPLOTS by SP van Blerk, NJ le Roux & S Gardner.
 
+## History (3)
+
 2001
 
 Sugnet Gardner (Lubbe) obtains her PhD on biplots under Prof le Roux.
 
-<img src="photos\SL.jpg" alt="Photo SL_hist" width="20%"/>
-
-## History (4)
-
-2001
+<img src="photos\SL.jpg" alt="Photo SL_hist" width="3%"/>
 
 Louise Wood obtains her Masters on biplots for socio-economic development under Prof le Roux.
 
-2003
+<br>
 
-Adele Bothma obtains her Masters on biplots for school results under Prof le Roux.
+2003: Adele Bothma obtains her Masters on biplots for school results under Prof le Roux.
 
-2007
+2007: Idele Walters obtains her Masters on biplots for exploring the gender gap under Prof le Roux.
 
-Idele Walters obtains her Masters on biplots for exploring the gender gap under Prof le Roux.
+2008: Ryan Wedlake obtains his Masters on robust biplots under Prof le Roux.
 
-## History (5)
+<br> <br> <br>
 
-2008
-
-Ryan Wedlake obtains his Masters on robust biplots under Prof le Roux.
+## History (4)
 
 2009
 
 ![](figures/Rlogo.jpg){width="33"} BiplotGUI for Interactive Biplots, Anthony le Grange.
 
-2010
-
-André Mostert obtains his Masters on biplots in industry under Prof le Roux.
-
-## History (6)
+2010: André Mostert obtains his Masters on biplots in industry under Prof le Roux.
 
 2011
 
 John Gower, Sugnet Lubbe and Niël le Roux publish **Understanding Biplots**.
 
-<img src="figures\UB.jpg" alt="Photo UB_hist" width="10%"/>
+<img src="figures\UB.jpg" alt="Photo UB_hist" width="15%"/>
 
 ![](figures/Rlogo.jpg){width="33"} R package UBbipl developed with the book, but never published.
 
-## History (7)
+## History (5)
 
-2013
+2013: Hilmarie Brand obtains her Masters on PCA and CVA biplots under Prof le Roux.
 
-Hilmarie Brand obtains her Masters on PCA and CVA biplots under Prof le Roux.
+2014: Opeoluwe Oyedele obtains her PhD on Partial Least Squares biplots under Sugnet Lubbe.
 
-2014
+2015: Ruan Rossouw obtains his PhD on using biplots for multivariate process monitoring under Prof le Roux.
 
-Opeoluwe Oyedele obtains her PhD on Partial Least Squares biplots under Sugnet Lubbe.
+2016: Ben Gurr obtains his Masters on biplots for crime data under Prof le Roux.
 
-2015
-
-Ruan Rossouw obtains his PhD on using biplots for multivariate process monitoring under Prof le Roux.
-
-2016
-
-Ben Gurr obtains his Masters on biplots for crime data under Prof le Roux.
-
-## History (8)
+<br>
 
 2019
 
 Johané Nienkemper-Swanepoel obtains her PhD on MCA biplots under Prof le Roux and Sugnet Lubbe.
 
-<img src="photos\JNS.jpg" alt="Photo JN_hist" width="30%"/>
+<img src="photos\JNS.jpg" alt="Photo JN_hist" width="5%"/>
 
 Carel van der Merwe obtains his PhD using biplots. Carel supervises 4 Master's projects on biplots.
 
 -   Justin Perrang, Francesca van Niekerk, David Rodwell, Delia Sandilands
 
-## History (9)
+<br>
+
+## History (6)
 
 2020
 
@@ -168,10 +160,6 @@ Raeesa Ganey obtains her PhD on Principal Surface Biplots under Sugnet Lubbe.
 
 André Mostert obtains his PhD on multidimensional scaling for identification of contributions to out of control multivariate processes under Sugnet Lubbe.
 
-## History (10)
-
-2020
-
 Adriaan Rowen obtains his Masters using biplots to understand black-box machine learning models.
 
 2022
@@ -180,7 +168,7 @@ Zoë-Mae Adams obtains her Masters on biplots in sentiment classification under 
 
 <img src="photos\ZA.jpg" alt="Photo ZA_hist" width="15%"/>
 
-## History (11)
+## History (7)
 
 2023
 
@@ -192,15 +180,11 @@ Ruan Buys obtains his Masters on Exploding biplots under Carel van der Merwe.
 
 <img src="photos\RB.jpg" alt="Photo RB_hist" width="15%"/>
 
-## History (12)
-
-2024
-
 Adriaan Rowen to submit his PhD using biplots to understand black-box machine learning models.
 
 Peter Manefeldt to submit his Masters using multidimensional scaling for interpretability of random forest models.
 
-<img src="photos\PM.jpg" alt="Photo PM_hist" width="10%"/>
+<img src="photos\PM.jpg" alt="Photo PM_hist" width="15%"/>
 
 ## The Team
 
@@ -256,8 +240,6 @@ Peter Manefeldt to submit his Masters using multidimensional scaling for interpr
 -   CVA biplots for two classes
 -   Regression biplot
 -   Spline biplot
--   Principal Coordinate Analysis biplot
--   Analysis of Distance biplot
 
 ## CVA biplots for two classes
 
@@ -281,13 +263,19 @@ $$ Total squared reconstruction error for means: $TSREM = tr\{ (\bar{\mathbf{X}}
 
 Total squared reconstruction error for samples: $TSRES = tr\{ ({\mathbf{X}}-\hat{{\mathbf{X}}})({\mathbf{X}}-\hat{{\mathbf{X}}})'\} >0$
 
-## CVA biplots for two classes
-
 Minimise $TSRES$ (Default option)
 
 Alternative option: Maximise Bhattacharyya distance. For more details see
 
 -   le Roux, N. and Gardner-Lubbe, S., 2024. A two-group canonical variate analysis biplot for an optimal display of both means and cases. *Advances in Data Analysis and Classification*, pp.1-28.
+
+## CVA biplots for two classes
+
+Solve $\mathbf{BM=WM\Lambda}$ where $\mathbf{M} = \begin{bmatrix}
+                      \mathbf{m}_1 & \mathbf{M}_2\\
+             \end{bmatrix}$
+
+Minimise $TSRES$
 
 $$
 \mathbf{M}^{-1} = \begin{bmatrix}
@@ -358,63 +346,3 @@ Replace linear regression with splines.
 biplot (iris[-102,1:4]) |> regress (Zmat, axes="splines") |>  plot ()
 ```
 
-## Principal Coordinate Analysis (PCO) biplot
-
-Where the Regression biplot is constructed for any 2D representation of sample points, PCO is more specific.
-
--   Compute $n \times n$ matrix of distances $\mathbf{D}$ between samples and
--   perform classical scaling on distance matrix.
-
-Distances should be Euclidean embeddable.
-
-This means that the samples can be embedded in a Euclidean space so that the Euclidean distances between samples are EXACTLY those in $\mathbf{D}$.
-
-Flexibility: distances for mixed-type variables.
-
-## Principal Coordinate Analysis (PCO) biplot
-
-```{r, mtcars_data}
-head(mtcars, 4)
-mtdf <- as.data.frame(mtcars)
-mtdf$cyl <- factor(mtdf$cyl)
-levels(mtdf$cyl) <- c("cyl4","cyl6","cyl8")
-mtdf$vs <- factor(mtdf$vs)
-levels(mtdf$vs) <- c("V","straight")
-mtdf$am <- factor(mtdf$am)
-levels(mtdf$am) <- c("auto","man")
-mtdf$gear <- factor(mtdf$gear)
-levels(mtdf$gear) <- c("3gears","4gears","5gears")
-mtdf$carb <- factor(mtdf$carb)
-levels(mtdf$carb) <- paste0("carb",levels(mtdf$carb))
-head(mtdf, 4)
-```
-
-## Distance calculations
-
-$$
-\mathbf{D} = \mathbf{D}_{cont} + \mathbf{D}_{cat}
-$$
-
-Manhattan distance is not Euclidean embeddable, but its square root is:
-
-$$
-d_{ij}^{(cont)} = \sqrt{\sum_{k=1}^{p_1} |x_{ik} - x_{jk}| }
-$$
-
-An example of a Euclidean embeddable distance metric for nominal data is the extended matching coefficient: counting the number of mismatches among the variables.
-
-Care has to be taken in terms of scaling the data.
-
--   A mismatch has maximum value 1 for each nominal variable.
--   Distance metric for continuous variables can taken on any positive value.
-
-Scale data matrix to unit range for each numerical variable.
-
-## Principal Coordinate Analysis (PCO) biplot
-
-```{r, PCO}
-out <- biplot (mtdf, scaled=TRUE) |> 
-         PCO(dist.func=sqrtManhattan, dist.func.cat = extended.matching.coefficient) |> 
-         plot()
-out$CLPs
-```
