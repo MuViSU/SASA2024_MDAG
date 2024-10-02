@@ -112,3 +112,10 @@ h1 {
 #remark-code {
   font-size: 50px;
 } 
+
+.reveal .slide-logo {
+  height: 100px !important;
+  width: 100px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}

@@ -14,7 +14,7 @@ title-slide-attributes:
   data-background-image: "SU_vertical.jpg"
   data-background-size: 15%
   data-background-opacity: "0.9"
-  data-background-position: 95% 90%
+  data-background-position: 15% 90%
 ---
 
 ```{r setup}
