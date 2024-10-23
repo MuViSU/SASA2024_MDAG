@@ -1,0 +1,34 @@
+---
+title: "CVA_ZA"
+subtitle: | User-friendly biplots in R <br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**
+format: 
+  revealjs:
+    self-contained: true
+    theme: [serif, MDAG_biplotEZ.scss]
+    slide-number: true
+    logo: logo.png
+    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
+title-slide-attributes: 
+  data-background-color: rgb(183,153,98)
+  data-background-image: "SU_vertical.jpg"
+  data-background-size: 15%
+  data-background-opacity: "0.9"
+  data-background-position: 15% 90%
+editor: visual
+---
+
+## The function means()
+
+description example
+
+## The function classify()
+
+description example
+
+## The function alpha.bags()
+
+description example
+
+## The function ellipses()
+
+description example
