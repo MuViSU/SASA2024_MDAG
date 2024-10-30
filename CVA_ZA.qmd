@@ -1,25 +1,29 @@
 ---
 title: "CVA_ZA"
-subtitle: | User-friendly biplots in R <br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**
-format: 
-  revealjs:
-    self-contained: true
-    theme: [serif, MDAG_biplotEZ.scss]
-    slide-number: true
-    logo: logo.png
-    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
-title-slide-attributes: 
-  data-background-color: rgb(183,153,98)
+subtitle: |
+  User-friendly biplots in R <br><br><br><br>
+  Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>
+  muvisu@sun.ac.za<br><br><br><br>
+  **StatCon2023**
+format:
+  html:
+    theme: cosmo
+title-slide-attributes:
+  data-background-color: "rgb(183,153,98)"
   data-background-image: "SU_vertical.jpg"
-  data-background-size: 15%
+  data-background-size: "15%"
   data-background-opacity: "0.9"
-  data-background-position: 15% 90%
-editor: visual
+  data-background-position: "15% 90%"
 ---
 
 ## The function means()
+- This function controls the aesthetics of the class means in the biplot
+- Apply these aesthetics through arguments
 
-description example
+```{r Using the means() function }
+#biplot(data) |> CVA(classes = classes) |> plot()
+```
+
 
 ## The function classify()
 
