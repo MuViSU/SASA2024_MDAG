@@ -16,11 +16,11 @@ $backgroundColor: #FFFFFF;
 
 // Primary/body text
 $mainFont: 'Quicksand', sans-serif;
-$mainFontSize: 30px;
+$mainFontSize: 20px;
 $mainColor: rgb(77,83,86);
 
 // Vertical spacing between blocks of text
-$blockMargin: 20px;
+$blockMargin: 15px;
 
 // Headings
 $headingMargin: 0 0 $blockMargin 0;
@@ -112,3 +112,10 @@ h1 {
 #remark-code {
   font-size: 50px;
 } 
+
+.reveal .slide-logo {
+  height: 100px !important;
+  width: 100px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
