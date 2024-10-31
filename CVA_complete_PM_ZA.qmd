@@ -3,6 +3,39 @@ title: "CVA_complete"
 author: "MuViSU"
 format: revealjs
 ---
+## The theory behind CVA
 
-## Intro 
-This is the presentation for CVA
+
+## The function means()
+- This function controls the aesthetics of the class means in the biplot
+- Apply these aesthetics through arguments
+
+```{r Using the means() function }
+#biplot(data) |> CVA(classes = classes) |> plot()
+```
+
+
+## The function classify()
+
+description example
+
+## The function alpha.bags()
+
+description example
+
+## The function ellipses()
+
+description example
+
+## Measuring fit of CVA
+
+## Summary measures for CVA 
+
+## Rotate and reflect 
+
+## Zooming in
+
+## One dimensional biplots
+
+## Three dimensional biplots 
+
