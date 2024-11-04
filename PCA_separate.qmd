@@ -1,6 +1,6 @@
 ---
 title: "**biplotEZ**"
-subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**"
+subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**SASA 2024**"
 #author: <a href="https://github.com/MuViSU" target="_blank">https://github.com/MuViSU</a>
 format: 
   revealjs:
@@ -10,7 +10,7 @@ format:
     logo: logo.png
     footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
 title-slide-attributes: 
-  data-background-color: rgb(183,153,98)
+  data-background-color: rgb(255,255,255)
   data-background-image: "SU_vertical.jpg"
   data-background-size: 15%
   data-background-opacity: "0.9"
@@ -37,9 +37,243 @@ opts_chunk$set(
 
 # libraries
 library(biplotEZ)
-
+library(r2resize)
+add.resizer()
 ```
 
-## PCA
+## Flow of functions in biplotEZ
 
-Raeesa and Ruan slides
+## First step to create a biplot
+
+```{r, echo = TRUE, eval = FALSE}
+#| out-width: 100%
+biplot(data=iris, 
+       group.aes = iris[,5],
+       Title="My first biplot")
+```
+
+| Argument | Description |
+|------------------------------------|------------------------------------|
+| `data` | a dataframe or matrix containing all variables the user wants to analyse. |
+| `classes` | a vector identifying class membership. Required for CVA biplots |
+| `group.aes` | Variable from the data to be used as a grouping variable. |
+| `center` | a logical value indicating whether data should be column centered, with default TRUE. |
+| `scaled` | a logical value indicating whether data should be standardised to unit column variances, with default FALSE. |
+| `Title` | Title of the biplot to be rendered. |
+
+## Type of biplot: PCA
+
+```{r, echo = TRUE, eval = FALSE}
+PCA()
+```
+
+| Argument | Description |
+|------------------------------------|------------------------------------|
+| `bp` | Object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}. |
+| `dim.biplot` | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default 2. |
+| `e.vects` | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`. |
+| `group.aes` | If not specified in `biplot()` |
+| `show.class.means` | T or F: Indicating whether group means should be plotted in the biplot. |
+| `correlation.biplot` | T or F: Indicating whether distances or correlations between the variables are optimally approximated. |
+
+: {tbl-colwidths="\[25,75\]"}
+
+## Theory
+
+## PCA biplot
+
+```{r}
+biplot(data=iris, 
+       group.aes = iris[,5],
+       Title="My first biplot") |> PCA() |> plot()
+```
+
+## Aesthetics: `samples()`
+
+Change the colour, plotting character and character expansion of the samples.
+
+```{r}
+#| code-line-numbers: "|3|"
+biplot(iris, group.aes = iris[,5]) |> 
+  PCA() |> 
+  samples(col = c("orange","purple","gold"), pch = c(15,1,17), cex = 1.2,opacity=0.6) |> 
+  plot()
+```
+
+::: {style="font-size: 70%;"}
+Notice that aesthetics in samples are applied to `group.aes` argument specified. Here there are three groups.
+:::
+
+## Aesthetics: `samples()`
+
+Select certain groups, and add labels to the samples
+
+```{r}
+#| code-line-numbers: "|3|"
+#| fig-width: 6
+#| fig-height: 6
+biplot(iris, group.aes = iris[,5]) |> 
+  PCA() |> 
+  samples(which=c(1,2), col = c("orange","purple"),label=TRUE) |> 
+  plot()
+```
+
+## Aesthetics: `samples()`
+
+### Other arguments
+
+| Argument | Description |
+|------------------------------------|------------------------------------|
+| `label.col` | Colour of labels |
+| `label.cex` | Text expansion of the labels |
+| `label.side` | Side at which the label of the plotted point appears - "bottom" (default), "top", "left", "right" |
+| `label.offset` | Offset of the label from the plotted point |
+| `connected` | T or F: whether samples are connected |
+| `connect.col` | Colour of the connecting line |
+| `connect.lty` | Line type of the connecting line |
+| `connect.lwd` | Line width of the connecting line |
+
+## Aesthetics: `axes()`
+
+Change the colour and line width of the axes
+
+```{r}
+#| code-line-numbers: "|2|"
+biplot(iris[,1:4]) |> PCA() |> samples(col="grey",opacity=0.5) |>
+  axes(col = "rosybrown",label.dir = "Orthog",lwd=2) |> plot()
+```
+
+## Aesthetics: `axes()`
+
+Show the first two axes with vector representation and unit circle
+
+```{r}
+#| code-line-numbers: "|2|"
+biplot(iris[,1:4]) |> PCA() |> samples(col="grey",opacity=0.5) |>
+  axes(which=1:2,col = "rosybrown",vectors =TRUE,unit.circle = TRUE) |> plot()
+```
+
+## Aesthetics: `axes()`
+
+### Other arguments
+
+::: {.column width="45%"}
+| Axis labels    |
+|----------------|
+| `ax.names`     |
+| `label.dir`    |
+| `label.col`    |
+| `label.cex`    |
+| `label.line`   |
+| `label.offset` |
+
+| Ticks             |
+|-------------------|
+| `ticks`           |
+| `tick.size`       |
+| `tick.label`      |
+| `tick.label.side` |
+| `tick.label.col`  |
+:::
+
+::: {.column width="45%"}
+| Prediction    |
+|---------------|
+| `predict.col` |
+| `predict.lwd` |
+| `predict.lty` |
+
+| Orthogonal |
+|------------|
+| `orthogx`  |
+| `orthogy`  |
+:::
+
+## Prediction of samples
+
+### `prediction()`
+
+```{r}
+#| code-line-numbers: "|3|4|"
+out <- biplot(iris[,1:4],group.aes=iris[,5]) |> PCA() |> 
+  samples(col=c("orange","purple","gold"),opacity=0.5) |>
+  prediction(predict.samples = c(1:2,51:52,101:102) )|>
+  axes(predict.col = "red",predict.lwd = 1.5,predict.lty = 2) |> plot()
+```
+
+## Prediction of samples
+
+Prediction only on `Sepal.Length`: use the `which` argument.
+
+```{r}
+#| code-line-numbers: "|3|"
+biplot(iris[,1:4],group.aes=iris[,5]) |> PCA() |> 
+  samples(col=c("orange","purple","gold"),opacity=0.5) |>
+  prediction(predict.samples = c(1:2,51:52,101:102),which="Sepal.Length")|>
+  axes(predict.col = "red",predict.lwd = 1.5,predict.lty = 2) |> plot()
+```
+
+## Prediction of group means
+
+```{r}
+#| code-line-numbers: "|1|3|"
+biplot(iris[,1:4],group.aes=iris[,5]) |> PCA(show.class.means = TRUE) |> 
+  samples(col=c("orange","purple","gold"),opacity=0.5) |>
+  prediction(predict.means = TRUE)|>
+  axes(predict.col = "red",predict.lwd = 1.5,predict.lty = 2) |> plot()
+```
+
+## Predictions
+
+```{r}
+summary(out)
+```
+
+## Interpolation of samples
+
+```{r}
+#| code-line-numbers: "|2|3|"
+biplot(iris[1:100,]) |> PCA() |> 
+  interpolate (newdata =iris[101:150,]) |> 
+  newsamples(col="red") |> plot()
+```
+
+
+## Interpolation of axes
+
+```{r}
+#| code-line-numbers: "|2|3|"
+biplot(iris[,1:3]) |> PCA() |> 
+    interpolate(newdata = NULL, newvariable = iris[,4]) |> 
+    newaxes(X.new.names = "Petal.Width") |> plot()
+```
+
+
+## Translation
+
+Automatically or manually translate the axes away from the center of the plot.
+
+```{r}
+biplot(iris)|> 
+      PCA(group.aes=iris[,5]) |> 
+      translate_axes(swop=TRUE,delta =0.2)|>
+      plot(exp.factor=3)
+```
+
+
+## Density plots
+```{r}
+biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
+  density2D(which=1,col=c("white","purple","cyan","blue")) |> plot()
+```
+
+
+## Fit measures
+
+```{r}
+out2 <- biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> fit.measures()
+summary(out2)
+```
+
+
+
