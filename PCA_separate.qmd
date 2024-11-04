@@ -38,14 +38,28 @@ opts_chunk$set(
 # libraries
 library(biplotEZ)
 library(r2resize)
+library(tibble)
 add.resizer()
 ```
+
+## What are biplots?
+
+::: {style="font-size: 120%;"}
+
+- The biplot is a powerful and very useful data visualisation tool.
+- Biplots make information in a table of data become transparent, revealing the main structures in the data in a methodical way, for example patterns of correlations between variables or similarities between the observations.
+
+- A biplot is a generalisation of a two-dimensional scatter diagram of data that exists in a higher dimensional space, where information on both samples and variables can be displayed graphically.
+
+- There are different types of biplots that are based on various multivariate data analysus techniques. 
+
+:::
 
 ## Flow of functions in biplotEZ
 
 ## First step to create a biplot
 
-```{r, echo = TRUE, eval = FALSE}
+```{r, echo = TRUE, eval = TRUE}
 #| out-width: 100%
 biplot(data=iris, 
        group.aes = iris[,5],
@@ -78,7 +92,42 @@ PCA()
 
 : {tbl-colwidths="\[25,75\]"}
 
-## Theory
+
+## Construction of PCA biplot
+
+- Consider a data matrix ${\bf{X}}^*$ of size $n \times p$.
+- Using the Iris data as an example, there are $n=150$ observations measured across $p=4$ variables. 
+
+```{r}
+tibble(iris)
+```
+
+- To produce a biplot, we need to optimally approximate ${\bf{X}} = ({\bf{I}}_n - \frac{1}{n}{\bf{11}}'){\bf{X}}^*$.
+- We want to minimise $min || {\hat{\bf{X}}} - {\bf{X}}||^2$.
+- The best approximation that minimises the least squares criterion is the $r$-dimensional Eckart-Young approximation given by ${\bf{\hat{X}}}_{[r]} = {\bf{U}} {\bf{D}}_{[r]} {\bf{V}}'$ 
+
+## Representing samples
+A standard result when $r = 2$ is that the row vectors of ${\bf{\hat{X}}}_{[2]}$ are the orthogonal projects of the corresponding row vectors of ${\bf{X}}$ onto the column space of ${\bf{V}}_2$. 
+
+```{r,echo=FALSE}
+biplot(iris) |> PCA() |> samples(col="blue",opacity=0.5) |> axes(which=NULL) |> plot()
+```
+
+These projections are also known as the first two principal components.
+
+## Representing variables 
+The columns of ${\bf{X}}$ are approximated by the first two rows of ${\bf{V}}$, which now represent the axes for each variable. 
+
+```{r,echo=FALSE}
+bp <- biplot(iris) |> PCA() |> samples(col="blue",opacity=0.5) |> axes(which=NULL) |> plot()
+V <- bp$V
+arrows(0,0,V[1,1],V[1,2],length = 0.05)
+arrows(0,0,V[2,1],V[2,2],length = 0.05)
+arrows(0,0,V[3,1],V[3,2],length = 0.05)
+arrows(0,0,V[4,1],V[4,2],length = 0.05)
+```
+
+The arrows representing the variables in the data can be calibrated to display marker points analogous to ordinary scatterplots. 
 
 ## PCA biplot
 
