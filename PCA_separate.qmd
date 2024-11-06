@@ -15,6 +15,9 @@ title-slide-attributes:
   data-background-size: 15%
   data-background-opacity: "0.9"
   data-background-position: 15% 90%
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup}
@@ -57,67 +60,51 @@ r2resize::add.resizer(
 ::: {style="font-size: 120%;"}
 -   The biplot is a powerful and very useful data visualisation tool.
 
--   Biplots make information in a table of data become transparent, revealing the main structures in the data in a methodical way, for example patterns of correlations between variables or similarities between the observations.
+-   Biplots make information in a table of data become transparent,
+    revealing the main structures in the data in a methodical way, for
+    example patterns of correlations between variables or similarities
+    between the observations.
 
--   A biplot is a generalisation of a two-dimensional scatter diagram of data that exists in a higher dimensional space, where information on both samples and variables can be displayed graphically.
+-   A biplot is a generalisation of a two-dimensional scatter diagram of
+    data that exists in a higher dimensional space, where information on
+    both samples and variables can be displayed graphically.
 
--   There are different types of biplots that are based on various multivariate data analysus techniques.
+-   There are different types of biplots that are based on various
+    multivariate data analysus techniques.
 :::
 
 ## Flow of functions in biplotEZ
 
-<div class="fragment" style="display: flex; justify-content: space-between;">
+:::::::: {.fragment style="display: flex; justify-content: space-between;"}
+::: {style="flex: 1; padding: 10px;"}
+**Main Function** - `biplot()`
+:::
 
-<div style="flex: 1; padding: 10px;">
-**Main Function**
-- `biplot()`
-</div>
-
-
-
-<div class="fragment" style="flex: 1; padding: 10px;">
+::: {.fragment style="flex: 1; padding: 10px;"}
 **Types of Biplot (1, 2, and 3 dimensions)**
 
-- `PCA()`
-- `CVA()`
-- `PCO()`
-- `CA()`
+-   `PCA()`
+-   `CVA()`
+-   `PCO()`
+-   `CA()`
+:::
 
-</div>
+::: {.fragment style="flex: 1; padding: 10px;"}
+**Operations** `prediction()` `interpolate()` `translate()`
+`density()` - `fit.measures()` - `classify()` - `alpha.bags()` -
+`ellipses()` - `rotate()` - `reflect()` - `zoom()` - `regress()` -
+`splines()`
+:::
 
-<div class="fragment" style="flex: 1; padding: 10px;">
-**Operations**
-`prediction()`
-`interpolate()`
-`translate()`
-`density()`
-- `fit.measures()`
-- `classify()`
-- `alpha.bags()`
-- `ellipses()`
-- `rotate()`
-- `reflect()`
-- `zoom()`
-- `regress()`
-- `splines()`
-</div>
+::: {.fragment style="flex: 1; padding: 10px;"}
+**Aesthetic Functions** - `samples()` - `axes()` - `newsamples()` -
+`newaxes()`
+:::
 
-<div class="fragment" style="flex: 1; padding: 10px;">
-**Aesthetic Functions**
-- `samples()`
-- `axes()`
-- `newsamples()`
-- `newaxes()`
-</div>
-
-<div class="fragment" style="flex: 1; padding: 10px;">
-**Plotting**
-- `plot()`
-</div>
-
-</div>
-
-
+::: {.fragment style="flex: 1; padding: 10px;"}
+**Plotting** - `plot()`
+:::
+::::::::
 
 ## First step to create a biplot
 
@@ -128,14 +115,14 @@ biplot(data=iris,
        Title="My first biplot")
 ```
 
-| Argument    | Description                                                                                                  |
-|-------------|--------------------------------------------------------------------------------------------------------------|
-| `data`      | a dataframe or matrix containing all variables the user wants to analyse.                                    |
-| `classes`   | a vector identifying class membership. Required for CVA biplots                                              |
-| `group.aes` | Variable from the data to be used as a grouping variable.                                                    |
-| `center`    | a logical value indicating whether data should be column centered, with default TRUE.                        |
-| `scaled`    | a logical value indicating whether data should be standardised to unit column variances, with default FALSE. |
-| `Title`     | Title of the biplot to be rendered.                                                                          |
+| Argument | Description |
+|-----------------|-------------------------------------------------------|
+| `data` | a dataframe or matrix containing all variables the user wants to analyse. |
+| `classes` | a vector identifying class membership. Required for CVA biplots |
+| `group.aes` | Variable from the data to be used as a grouping variable. |
+| `center` | a logical value indicating whether data should be column centered, with default TRUE. |
+| `scaled` | a logical value indicating whether data should be standardised to unit column variances, with default FALSE. |
+| `Title` | Title of the biplot to be rendered. |
 
 ## Type of biplot: PCA
 
@@ -143,13 +130,13 @@ biplot(data=iris,
 PCA()
 ```
 
-| Argument             | Description                                                                                            |
-|----------------------|--------------------------------------------------------------------------------------------------------|
-| `bp`                 | Object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}.                            |
-| `dim.biplot`         | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default 2.                          |
-| `e.vects`            | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`.                     |
-| `group.aes`          | If not specified in `biplot()`                                                                         |
-| `show.class.means`   | T or F: Indicating whether group means should be plotted in the biplot.                                |
+| Argument | Description |
+|------------------|------------------------------------------------------|
+| `bp` | Object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}. |
+| `dim.biplot` | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default 2. |
+| `e.vects` | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`. |
+| `group.aes` | If not specified in `biplot()` |
+| `show.class.means` | T or F: Indicating whether group means should be plotted in the biplot. |
 | `correlation.biplot` | T or F: Indicating whether distances or correlations between the variables are optimally approximated. |
 
 : {tbl-colwidths="\[25,75\]"}
@@ -157,19 +144,25 @@ PCA()
 ## Construction of PCA biplot
 
 -   Consider a data matrix ${\bf{X}}^*$ of size $n \times p$.
--   Using the Iris data as an example, there are $n=150$ observations measured across $p=4$ variables.
+-   Using the Iris data as an example, there are $n=150$ observations
+    measured across $p=4$ variables.
 
 ```{r}
 tibble(iris)
 ```
 
--   To produce a biplot, we need to optimally approximate ${\bf{X}} = ({\bf{I}}_n - \frac{1}{n}{\bf{11}}'){\bf{X}}^*$.
+-   To produce a biplot, we need to optimally approximate
+    ${\bf{X}} = ({\bf{I}}_n - \frac{1}{n}{\bf{11}}'){\bf{X}}^*$.
 -   We want to minimise $min || {\hat{\bf{X}}} - {\bf{X}}||^2$.
--   The best approximation that minimises the least squares criterion is the $r$-dimensional Eckart-Young approximation given by ${\bf{\hat{X}}}_{[r]} = {\bf{U}} {\bf{D}}_{[r]} {\bf{V}}'$
+-   The best approximation that minimises the least squares criterion is
+    the $r$-dimensional Eckart-Young approximation given by
+    ${\bf{\hat{X}}}_{[r]} = {\bf{U}} {\bf{D}}_{[r]} {\bf{V}}'$
 
 ## Representing samples
 
-A standard result when $r = 2$ is that the row vectors of ${\bf{\hat{X}}}_{[2]}$ are the orthogonal projects of the corresponding row vectors of ${\bf{X}}$ onto the column space of ${\bf{V}}_2$.
+A standard result when $r = 2$ is that the row vectors of
+${\bf{\hat{X}}}_{[2]}$ are the orthogonal projects of the corresponding
+row vectors of ${\bf{X}}$ onto the column space of ${\bf{V}}_2$.
 
 ```{r,echo=FALSE}
 biplot(iris) |> PCA() |> samples(col="blue",opacity=0.5) |> axes(which=NULL) |> plot()
@@ -179,7 +172,8 @@ These projections are also known as the first two principal components.
 
 ## Representing variables
 
-The columns of ${\bf{X}}$ are approximated by the first two rows of ${\bf{V}}$, which now represent the axes for each variable.
+The columns of ${\bf{X}}$ are approximated by the first two rows of
+${\bf{V}}$, which now represent the axes for each variable.
 
 ```{r,echo=FALSE}
 bp <- biplot(iris) |> PCA() |> samples(col="blue",opacity=0.5) |> axes(which=NULL) |> plot()
@@ -190,7 +184,8 @@ arrows(0,0,V[3,1],V[3,2],length = 0.05)
 arrows(0,0,V[4,1],V[4,2],length = 0.05)
 ```
 
-The arrows representing the variables in the data can be calibrated to display marker points analogous to ordinary scatterplots.
+The arrows representing the variables in the data can be calibrated to
+display marker points analogous to ordinary scatterplots.
 
 ## PCA biplot
 
@@ -203,7 +198,8 @@ add.resizer()
 
 ## Aesthetics: `samples()`
 
-Change the colour, plotting character and character expansion of the samples.
+Change the colour, plotting character and character expansion of the
+samples.
 
 ```{r}
 #| code-line-numbers: "|3|"
@@ -214,7 +210,8 @@ biplot(iris, group.aes = iris[,5]) |>
 ```
 
 ::: {style="font-size: 70%;"}
-Notice that aesthetics in samples are applied to `group.aes` argument specified. Here there are three groups.
+Notice that aesthetics in samples are applied to `group.aes` argument
+specified. Here there are three groups.
 :::
 
 ## Aesthetics: `samples()`
@@ -235,16 +232,16 @@ biplot(iris, group.aes = iris[,5]) |>
 
 ### Other arguments
 
-| Argument       | Description                                                                                       |
-|----------------|---------------------------------------------------------------------------------------------------|
-| `label.col`    | Colour of labels                                                                                  |
-| `label.cex`    | Text expansion of the labels                                                                      |
-| `label.side`   | Side at which the label of the plotted point appears - "bottom" (default), "top", "left", "right" |
-| `label.offset` | Offset of the label from the plotted point                                                        |
-| `connected`    | T or F: whether samples are connected                                                             |
-| `connect.col`  | Colour of the connecting line                                                                     |
-| `connect.lty`  | Line type of the connecting line                                                                  |
-| `connect.lwd`  | Line width of the connecting line                                                                 |
+| Argument | Description |
+|-----------------|-------------------------------------------------------|
+| `label.col` | Colour of labels |
+| `label.cex` | Text expansion of the labels |
+| `label.side` | Side at which the label of the plotted point appears - "bottom" (default), "top", "left", "right" |
+| `label.offset` | Offset of the label from the plotted point |
+| `connected` | T or F: whether samples are connected |
+| `connect.col` | Colour of the connecting line |
+| `connect.lty` | Line type of the connecting line |
+| `connect.lwd` | Line width of the connecting line |
 
 ## Aesthetics: `axes()`
 
@@ -270,37 +267,43 @@ biplot(iris[,1:4]) |> PCA() |> samples(col="grey",opacity=0.5) |>
 
 ### Other arguments
 
-::: {.column width="45%"}
-| Axis labels    |
-|----------------|
-| `ax.names`     |
-| `label.dir`    |
-| `label.col`    |
-| `label.cex`    |
-| `label.line`   |
+::::: {.container style="display: flex; justify-content: space-between; text-align: left;"}
+::: {.column style="width: 45%;"}
+|  Axis labels   |
+|:--------------:|
+|   `ax.names`   |
+|  `label.dir`   |
+|  `label.col`   |
+|  `label.cex`   |
+|  `label.line`  |
 | `label.offset` |
 
-| Ticks             |
-|-------------------|
-| `ticks`           |
-| `tick.size`       |
-| `tick.label`      |
+<div class="spaced-table"></div> <!-- Adds space -->
+
+|       Ticks       |
+|:-----------------:|
+|      `ticks`      |
+|    `tick.size`    |
+|   `tick.label`    |
 | `tick.label.side` |
 | `tick.label.col`  |
 :::
 
-::: {.column width="45%"}
-| Prediction    |
-|---------------|
+::: {.column style="width: 45%;"}
+|  Prediction   |
+|:-------------:|
 | `predict.col` |
 | `predict.lwd` |
 | `predict.lty` |
 
+<div class="spaced-table"></div> <!-- Adds space -->
+
 | Orthogonal |
-|------------|
+|:----------:|
 | `orthogx`  |
 | `orthogy`  |
 :::
+:::::
 
 ## Prediction of samples
 
@@ -362,7 +365,8 @@ biplot(iris[,1:3]) |> PCA() |>
 
 ## Translation
 
-Automatically or manually translate the axes away from the center of the plot.
+Automatically or manually translate the axes away from the center of the
+plot.
 
 ```{r}
 biplot(iris)|> 
