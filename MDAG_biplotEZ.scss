@@ -116,7 +116,14 @@ h1 {
 
 .reveal .slide-logo {
   height: 100px !important;
-  width: 100px !important;
+  width: 90px !important;
   max-width: unset !important;
   max-height: unset !important;
+}
+
+.bibliography {
+  font-size: 120px;  /* Increase the font size */
+  line-height: 1.6;  /* Adjust line height for readability */
+  font-family: "Raleway", sans-serif;
+  color: #61223b;
 }
