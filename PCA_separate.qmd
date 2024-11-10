@@ -70,7 +70,6 @@ r2resize::add.resizer(
 
 <div style="flex: 1; padding: 10px;">
 **Main Function**
-- `biplot()`
 </div>
 
 
@@ -78,41 +77,73 @@ r2resize::add.resizer(
 <div class="fragment" style="flex: 1; padding: 10px;">
 **Types of Biplot (1, 2, and 3 dimensions)**
 
-- `PCA()`
-- `CVA()`
-- `PCO()`
-- `CA()`
 
 </div>
 
 <div class="fragment" style="flex: 1; padding: 10px;">
 **Operations**
-`prediction()`
-`interpolate()`
-`translate()`
-`density()`
-- `fit.measures()`
-- `classify()`
-- `alpha.bags()`
-- `ellipses()`
-- `rotate()`
-- `reflect()`
-- `zoom()`
-- `regress()`
-- `splines()`
+
 </div>
 
 <div class="fragment" style="flex: 1; padding: 10px;">
 **Aesthetic Functions**
-- `samples()`
-- `axes()`
-- `newsamples()`
-- `newaxes()`
+
 </div>
 
 <div class="fragment" style="flex: 1; padding: 10px;">
 **Plotting**
-- `plot()`
+
+</div>
+
+</div>
+
+<div class="fragment" style="display: flex; justify-content: space-between;   display: flex;
+  justify-content: center;
+  align-items: center;">
+
+<div style="flex: 1; padding: 10px;">
+ `biplot()`
+</div>
+
+
+
+<div class="fragment" style="flex: 1; padding: 10px;">
+
+`PCA()`
+`CVA()`
+`PCO()`
+`CA()`
+
+</div>
+
+<div class="fragment" style="flex: 1; padding: 10px;   display: flex; justify-content: center; align-items: center;">
+
+`prediction()`
+`interpolate()`
+`translate()`
+`density()`
+ `fit.measures()`
+ `classify()`
+ `alpha.bags()`
+ `ellipses()`
+ `rotate()`
+ `reflect()`
+ `zoom()`
+ `regress()`
+ `splines()`
+</div>
+
+<div class="fragment" style="flex: 1; padding: 10px;">
+
+ `samples()`
+ `axes()`
+ `newsamples()`
+ `newaxes()`
+</div>
+
+<div class="fragment" style="flex: 1; padding: 10px;">
+
+ `plot()`
 </div>
 
 </div>
