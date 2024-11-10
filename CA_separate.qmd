@@ -1,6 +1,6 @@
 ---
 title: "**biplotEZ**"
-subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**StatCon2023**"
+subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**SASA 2024**"
 #author: <a href="https://github.com/MuViSU" target="_blank">https://github.com/MuViSU</a>
 format: 
   revealjs:
@@ -9,12 +9,13 @@ format:
     slide-number: true
     logo: logo.png
     footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
+    bibliography: references.bib
 title-slide-attributes: 
-  data-background-color: rgb(183,153,98)
-  data-background-image: "SU_vertical.jpg"
-  data-background-size: 15%
-  data-background-opacity: "0.9"
-  data-background-position: 15% 90%
+    data-background-color: rgb(255,255,255)
+    data-background-image: "SU_vertical.jpg"
+    data-background-size: 15%
+    data-background-opacity: "0.9"
+    data-background-position: 15% 90%
 ---
 
 ```{r setup}
@@ -39,10 +40,35 @@ opts_chunk$set(
 library(biplotEZ)
 library(r2resize)
 library(tibble)
-add.resizer()
-
+r2resize::add.resizer(
+  theme.color = "black",
+  position = "top",
+  font.size = "12px",
+  font.color = "darkblue",
+  tables = TRUE,
+  images = TRUE,
+  line.color = "orange",
+  line.width = 150,
+  default.image.width="40%"
+)
 ```
 
-## CA
+## What is Correspondence Analysis?
 
-Johané slides
+::: {style="font-size: 120%;"}
+
+::: incremental
+-   Aims to expose the association between two categorical variables.
+
+-   Summarised in a two-way contingency table.
+
+-   Numerous variants of CA are available for the application to diverse problems, the interested reader is referred to:
+@UB2011, @BehLombardo2014.
+
+-   There are different types of biplots that are based on various
+    multivariate data analysus techniques.
+:::
+:::
+
+## References
+
