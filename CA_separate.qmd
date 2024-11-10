@@ -37,6 +37,9 @@ opts_chunk$set(
 
 # libraries
 library(biplotEZ)
+library(r2resize)
+library(tibble)
+add.resizer()
 
 ```
 
