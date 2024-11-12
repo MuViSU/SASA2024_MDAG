@@ -1,31 +1,137 @@
 ---
-title: "CVA_complete"
-author: "MuViSU"
-format: revealjs
+title: "**biplotEZ**"
+subtitle: "User-friendly biplots in R <br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**SASA2024**"
+format: 
+  revealjs: 
+    self-contained: true
+    theme: [serif,MDAG_biplotEZ.scss]
+    slide-number: true
+    logo: logo.png
+    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
+title-slide-attributes: 
+  data-background-color: rgb(255,255,255)
+  data-background-image: "SU_vertical.jpg"
+  data-background-size: 15%
+  data-background-opacity: "0.9"
+  data-background-position: 15% 90%
+editor: 
+  markdown: 
+    wrap: 72
 ---
+```{r setup}
+#| include: false
+
+library(knitr)
+options(htmltools.dir.version = FALSE, tibble.width = 45)
+opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  message = FALSE, 
+  error=FALSE, 
+  comment = "#",
+  fig.align = 'center', 
+  fig.retina = 5,
+  out.width = "80%",
+  fig.show = 'hold',
+  cache = FALSE
+)
+
+# libraries
+library(biplotEZ)
+library(r2resize)
+library(tibble)
+r2resize::add.resizer(
+  theme.color = "black",
+  position = "top",
+  font.size = "12px",
+  font.color = "darkblue",
+  tables = TRUE,
+  images = TRUE,
+  line.color = "orange",
+  line.width = 150,
+  default.image.width="40%"
+)
+```
+
 ## The theory behind CVA
 
 
+
+
+
 ## The function means()
+::: {style="font-size: 120%;|}
+
+::: incremental 
+
+
 - This function controls the aesthetics of the class means in the biplot
 - Apply these aesthetics through arguments
 
+### Deciding which of the means to plot
+
 ```{r Using the means() function }
-#biplot(data) |> CVA(classes = classes) |> plot()
+biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3)) |> plot()
+```
+
+### Colours and characters for the points
+
+```{r Colours and shapes}
+biplot(state.x77) |> CVA(state.region) |> means(cex = c(1,2,3,4),col = "red",pch = c(9,13,4,16)) |> plot()
+```
+
+### Labels
+
+```{r Labels}
+biplot(state.x77) |> CVA(state.region) |> means(label = TRUE,label.side = "top",label.offset = 2,label.cex = 1) |> plot()
 ```
 
 
 ## The function classify()
+This function deals with classification regions \\
+The classify() function appends the biplot object with the following elements: \\
+- A confusion matrix from the classification into classes
+- The classification accuracy rate
+- A logical value indicating whether classification regions are shown in the biplot
+- A list of chosen aesthetics for the classification regions
+- The midpoints of the classification regions
+```{r Using the classify() function }
+class.examp<-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine"))
+class.examp$classify
+class.examp |> plot()
+```
 
-description example
 
 ## The function alpha.bags()
+This function creates $\alpha$-bags \\
+The alpha.bags() function appends the biplot object with the following elements: \\
+- A list of coordinates for the $\alpha$-bags for each group
+- A vector of colours for the $\alpha$-bags 
+- A vector of line types for the $\alpha$-bags 
+- A vector of line widths for the $\alpha$-bags
 
-description example
+```{r Alpha bags}
+ab.examp<-biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4))
+ab.examp$alpha.bags
+ab.examp |> plot()
+```
+
 
 ## The function ellipses()
+This function creates $\kappa$-ellipses \\
+The alpha.bags() function appends the biplot object with the following elements: \\
+- A list of coordinates for the $\kappa$-bags for each group
+- A vector of colours for the $\kappa$-bags 
+- A vector of line types for the $\kappa$-bags 
+- A vector of line widths for the $\kappa$-bags
+- A vector of $\alpha$ values
 
-description example
+```{r Concentration ellipses}
+kc.examp<-biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4))
+kc.examp$conc.ellipses
+kc.examp |> plot()
+```
+
 
 ## Measuring fit of CVA
 
@@ -38,4 +144,8 @@ description example
 ## One dimensional biplots
 
 ## Three dimensional biplots 
+
+```{r 3D biplots}
+biplot(state.x77) |> PCA(state.region,dim.biplot = 3) |> plot()
+```
 
