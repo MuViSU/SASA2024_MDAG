@@ -297,8 +297,8 @@ $$
 ## CVA biplots for two classes
 
 ```{r, CVA2class}
-biplot (iris[51:150,]) |> CVA (classes = iris[51:150,5]) |> means (cex=2) |>
-  axes (label.dir = "Hor", label.line=c(0.8,0,0,0)) |> plot ()
+biplot (iris[51:150,]) |> CVA (classes = iris[51:150,5]) |> means (cex = 2) |>
+  axes (label.dir = "Hor", label.line = c(0.8, 0, 0, 0)) |> plot ()
 ```
 
 ## Regression biplot
@@ -307,7 +307,7 @@ Any 2D representation of sample points, for example
 
 ```{r}
 library (MASS)
-Zmat <- sammon (dist(iris[-102,1:4], method="manhattan"))$points
+Zmat <- sammon (dist(iris[-102,1:4], method = "manhattan"))$points
 ```
 
 To create a biplot we need to add information on the variables.
@@ -343,6 +343,23 @@ Replace linear regression with splines.
 ## Spline biplot
 
 ```{r, splines}
-biplot (iris[-102,1:4]) |> regress (Zmat, axes="splines") |>  plot ()
+biplot (iris[-102,1:4]) |> regress (Zmat, axes = "splines") |>  plot ()
 ```
 
+## In conclusion
+
+Biplots developed since 1971.
+
+R code (SPLUS) developed since 1997.
+
+The **biplotEZ** package encapsulates the developments in a single package.
+
+Developments on **biplotEZ** are continuing
+
+* Categorical variables: Multiple correspondence analysis & Categorical PCA.
+* Shiny / plotly version for interactivity.
+* Modelling: bi-additive biplots, biplots for logistic regression.
+
+*Applying biplotEZ an R package for multi-dimensional data visualisation*
+
+Contact one of the team members or e-mail muvisu@sun.ac.za.
