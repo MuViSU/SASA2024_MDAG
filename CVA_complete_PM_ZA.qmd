@@ -18,6 +18,7 @@ editor:
   markdown: 
     wrap: 72
 ---
+
 ```{r setup}
 #| include: false
 
@@ -53,99 +54,154 @@ r2resize::add.resizer(
 )
 ```
 
-## The theory behind CVA
+# The theory behind CVA
 
+# Class means
 
+::: incremental
+-   The `means()` function allows the user to make adjustments to the
+    points representing the class means
+:::
 
+## Plotting only a selection of the class means
 
+The `which` argument allows the user to indicate which of the class
+means should be displayed in the biplot.
 
-## The function means()
-::: {style="font-size: 120%;|}
-
-::: incremental 
-
-
-- This function controls the aesthetics of the class means in the biplot
-- Apply these aesthetics through arguments
-
-### Deciding which of the means to plot
-
-```{r Using the means() function }
-biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3)) |> plot()
+```{r Selecting the class means}
+biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3),label = TRUE) |> plot()
 ```
 
-### Colours and characters for the points
+## Colours and characters for the points
+
+The following arguments control the aesthetic options for the plotted
+class mean points:
+
+-    `col`: the colours for the points
+
+-    `pch`: the plotting characters for the points
+
+-    `cex`: the character size for the points
+
+-    `opacity`: the transparency of the points
+
+-    `shade.darker`: a `TRUE` or `FALSE` value indicating whether the
+    points should be a shade darker than the samples
 
 ```{r Colours and shapes}
 biplot(state.x77) |> CVA(state.region) |> means(cex = c(1,2,3,4),col = "red",pch = c(9,13,4,16)) |> plot()
 ```
 
-### Labels
+## Labels
+
+The following arguments control the aesthetic options for the labels
+accompanying the plotted class mean points:
+
+-    `label`: a `TRUE` or `FALSE` value indicating whether labels are
+    displayed
+
+-   `label.col`: the colours for the labels
+
+-   `label.cex`: the character size for the labels
+
+-   `label.side`: the side at which the label appears
+
+-   `label.offset`: the offset of the label
 
 ```{r Labels}
 biplot(state.x77) |> CVA(state.region) |> means(label = TRUE,label.side = "top",label.offset = 2,label.cex = 1) |> plot()
 ```
 
+# Classification regions
 
-## The function classify()
-This function deals with classification regions \\
-The classify() function appends the biplot object with the following elements: \\
-- A confusion matrix from the classification into classes
-- The classification accuracy rate
-- A logical value indicating whether classification regions are shown in the biplot
-- A list of chosen aesthetics for the classification regions
-- The midpoints of the classification regions
-```{r Using the classify() function }
+This function creates classification regions for the CVA biplot
+
+The `classify()` function appends the biplot object with the following
+elements:
+
+-   A confusion matrix from the classification into classes
+
+-   The classification accuracy rate
+
+-   A logical value indicating whether classification regions are shown
+    in the biplot
+
+-   A list of chosen aesthetics for the classification regions
+
+-   The midpoints of the classification regions
+
+## Classification regions in the CVA biplot
+
+```{r Classification regions }
 class.examp<-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine"))
-class.examp$classify
+#class.examp$classify
 class.examp |> plot()
 ```
 
+# Bags containing a percentage of observations
 
-## The function alpha.bags()
-This function creates $\alpha$-bags \\
-The alpha.bags() function appends the biplot object with the following elements: \\
-- A list of coordinates for the $\alpha$-bags for each group
-- A vector of colours for the $\alpha$-bags 
-- A vector of line types for the $\alpha$-bags 
-- A vector of line widths for the $\alpha$-bags
+This function creates $\alpha$-bags
+
+The `alpha.bags()` function appends the biplot object with the following
+elements:
+
+-   A list of coordinates for the $\alpha$-bags for each group
+
+-   A vector of colours for the $\alpha$-bags
+
+-   A vector of line types for the $\alpha$-bags
+
+-   A vector of line widths for the $\alpha$-bags
+
+## The alpha-bags in the CVA biplot
 
 ```{r Alpha bags}
 ab.examp<-biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4))
-ab.examp$alpha.bags
+#ab.examp$alpha.bags
 ab.examp |> plot()
 ```
 
+# Concentration ellipses
 
-## The function ellipses()
-This function creates $\kappa$-ellipses \\
-The alpha.bags() function appends the biplot object with the following elements: \\
-- A list of coordinates for the $\kappa$-bags for each group
-- A vector of colours for the $\kappa$-bags 
-- A vector of line types for the $\kappa$-bags 
-- A vector of line widths for the $\kappa$-bags
-- A vector of $\alpha$ values
+This function creates $\kappa$-ellipses
+
+The `ellipses()` function appends the biplot object with the following
+elements:
+
+-   A list of coordinates for the $\kappa$-ellipses for each group
+
+-   A vector of colours for the $\kappa$-ellipses
+
+-   A vector of line types for the $\kappa$-ellipses
+
+-   A vector of line widths for the $\kappa$-ellipses
+
+-   A vector of $\alpha$ values
+
+## The concentration ellipses in the CVA biplot
 
 ```{r Concentration ellipses}
 kc.examp<-biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4))
-kc.examp$conc.ellipses
+#kc.examp$conc.ellipses
 kc.examp |> plot()
 ```
 
+# Measuring fit of CVA
 
-## Measuring fit of CVA
+# Summary measures for CVA
 
-## Summary measures for CVA 
+# Rotate and reflect
 
-## Rotate and reflect 
+# Zooming in
 
-## Zooming in
+# One dimensional biplots
 
-## One dimensional biplots
+# Three dimensional biplots
 
-## Three dimensional biplots 
+The `dim.biplot` argument can be set to `3` to allow the user to create
+a 3D biplot. The `plot()` function makes use of the `RGL` device for the
+3D display.
 
 ```{r 3D biplots}
-biplot(state.x77) |> PCA(state.region,dim.biplot = 3) |> plot()
+biplot(iris) |> CVA(classes = iris[,5],dim.biplot = 3) |> means(col = "red") |> plot()
 ```
-
