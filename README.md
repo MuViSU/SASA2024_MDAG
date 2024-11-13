@@ -36,7 +36,8 @@ install.packages("biplotEZ")
 Ideally, you install this package from GitHub:
 
 ```
-remotes::install_github("MuViSU/biplotEZ")
+library(devtools)
+devtools::install_github("MuViSU/biplotEZ")
 ```
 
 
