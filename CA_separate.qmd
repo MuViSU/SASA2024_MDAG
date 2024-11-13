@@ -268,26 +268,37 @@ biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Symmetric") |>
 ```
 
 ## Fit measures
-
+::: {style="font-size: 120%;"}
 ```{r}
 #| code-line-numbers: "|3|"
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA(variant = "Symmetric") |> 
   fit.measures()
 ```
+
+::: fragment 
 
 -   Quality:
 ```{r}
 ca.out$quality
 ```
 
+:::
+
+::: fragment
+
 -   Adequacy:
+
 ```{r}
 ca.out$adequacy
 ```
 
-## Fit measures
+:::
 
+:::
+
+## Fit measures
+::: {style="font-size: 120%;"}
 ```{r}
 #| code-line-numbers: "|3|"
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
@@ -295,14 +306,27 @@ ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |>
   fit.measures()
 ```
 
+
+::: fragment
+
 -   Row predictivities:
+
 ```{r}
 ca.out$row.predictivities
 ```
 
+:::
+
+::: fragment
+
 -   Column predictivities:
+
 ```{r}
 ca.out$col.predictivities
 ```
+
+:::
+
+:::
 
 ## References

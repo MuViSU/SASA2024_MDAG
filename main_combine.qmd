@@ -1,0 +1,30 @@
+---
+title: "**biplotEZ**"
+subtitle: "User-friendly biplots in R<br><br><br><br> Centre for Multi-Dimensional Data Visualisation (MuViSU) <br>muvisu@sun.ac.za<br><br><br><br>**SASA 2024**"
+#author: <a href="https://github.com/MuViSU" target="_blank">https://github.com/MuViSU</a>
+format: 
+  revealjs:
+    self-contained: true
+    theme: [serif, MDAG_biplotEZ.scss]
+    slide-number: true
+    logo: logo.png
+    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
+    bibliography: references.bib
+title-slide-attributes: 
+    data-background-color: rgb(255,255,255)
+    data-background-image: "SU_vertical.jpg"
+    data-background-size: 15%
+    data-background-opacity: "0.9"
+    data-background-position: 15% 90%
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# CVA
+
+{{< include CVA_complete_PM_ZA.qmd >}}
+
+# CA
+
+{{< include CA_separate.qmd >}}
