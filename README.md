@@ -16,7 +16,7 @@ Sugnet Lubbe, Niël le Roux, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Bu
 |14:05-15:05|	Principal component analysis biplots| Raeesa Ganey and Ruan Buys|
 |15:05-15:30|	Correspondence Analysis biplots| Johané Nienkemper-Swanepoel |
 |15:30-16:00|	BREAK|
-|16:00-16:30|	Canonical correspondence analysis biplots| Zoë-Mae Adams and Peter Manefeldt |
+|16:00-16:30|	Canonical variate analysis biplots| Zoë-Mae Adams and Peter Manefeldt |
 |16:30-16:40|	1D biplots| Peter Manefeldt |
 |16:40-16:50|	3D biplots| Zoë-Mae Adams |
 |16:50-17:00|	Other biplots and conclusion| Sugnet Lubbe |
