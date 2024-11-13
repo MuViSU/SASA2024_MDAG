@@ -8,7 +8,7 @@ Background: Participants should have a good working knowledge of R, and some bac
 
 **Authors**: 
 
-Sugnet Lubbe, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Buys, Zoë-Mae Adams and Peter Manefeldt
+Sugnet Lubbe, Niël le Roux, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Buys, Zoë-Mae Adams and Peter Manefeldt
 
 ## Workshop programme
 
