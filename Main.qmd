@@ -72,5 +72,12 @@ library(tibble)
 :::
 
 
+{{< include 1_intro.qmd >}}
 
-{{< include Testers.qmd >}}
+{{< include 2_PCA.qmd >}}
+
+{{< include 3_CVA.qmd >}}
+
+{{< include 4_CA.qmd >}}
+
+{{< include 5_more.qmd >}}

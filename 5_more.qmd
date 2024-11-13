@@ -1,0 +1,128 @@
+## More biplots
+
+-   CVA biplots for two classes
+-   Regression biplot
+-   Spline biplot
+
+## CVA biplots for two classes
+
+Canonical space of dimension 1.
+
+Solve $\mathbf{BM=WM\Lambda}$ where $\mathbf{M} = \begin{bmatrix}
+                      \mathbf{m}_1 & \mathbf{M}_2\\
+             \end{bmatrix}$
+
+$$
+\bar{\mathbf{Y}} = \bar{\mathbf{X}} \mathbf{M} = \begin{bmatrix}
+                                  \bar{y}_{11} & 0      & \dots & 0 \\
+                                  \vdots       & \vdots &       & \vdots\\
+                                  \bar{y}_{K1} & 0      & \dots & 0 \\
+                                    \end{bmatrix}
+$$
+
+$$
+\mathbf{\Lambda} = diag(\lambda, 0, ..., 0)
+$$ Total squared reconstruction error for means: $TSREM = tr\{ (\bar{\mathbf{X}}-\hat{\bar{\mathbf{X}}})(\bar{\mathbf{X}}-\hat{\bar{\mathbf{X}}})'\} = 0$
+
+Total squared reconstruction error for samples: $TSRES = tr\{ ({\mathbf{X}}-\hat{{\mathbf{X}}})({\mathbf{X}}-\hat{{\mathbf{X}}})'\} >0$
+
+Minimise $TSRES$ (Default option)
+
+Alternative option: Maximise Bhattacharyya distance. For more details see
+
+-   le Roux, N. and Gardner-Lubbe, S., 2024. A two-group canonical variate analysis biplot for an optimal display of both means and cases. *Advances in Data Analysis and Classification*, pp.1-28.
+
+## CVA biplots for two classes
+
+Solve $\mathbf{BM=WM\Lambda}$ where $\mathbf{M} = \begin{bmatrix}
+                      \mathbf{m}_1 & \mathbf{M}_2\\
+             \end{bmatrix}$
+
+Minimise $TSRES$
+
+$$
+\mathbf{M}^{-1} = \begin{bmatrix}
+                      \mathbf{m}^{(1)} \\
+                      \mathbf{M}^{(2)}\\
+             \end{bmatrix}
+$$
+
+$$
+\mathbf{M}^{(2)}\mathbf{M}^{(2)'} = \mathbf{UDV}'
+$$
+
+$$
+\mathbf{M}_{opt} = \begin{bmatrix}
+                      \mathbf{m}_1 & \mathbf{M}_2\mathbf{V}\\
+             \end{bmatrix}
+$$
+
+## CVA biplots for two classes
+
+```{r, CVA2class}
+biplot (iris[51:150,]) |> CVA (classes = iris[51:150,5]) |> means (cex = 2) |>
+  axes (label.dir = "Hor", label.line = c(0.8, 0, 0, 0)) |> plot ()
+```
+
+## Regression biplot
+
+Any 2D representation of sample points, for example
+
+```{r}
+library (MASS)
+Zmat <- sammon (dist(iris[-102,1:4], method = "manhattan"))$points
+```
+
+To create a biplot we need to add information on the variables.
+
+$$
+\mathbf{X}:n \times p
+$$
+
+$$
+\mathbf{Z}:n \times 2
+$$
+
+$$
+\mathbf{X = ZB + E}
+$$
+
+$$
+\mathbf{B = (X'X)}^{-1}\mathbf{X'Z}
+$$
+
+## Regression biplot
+
+```{r, regression}
+biplot (iris[-102,]) |> regress (Zmat) |>  plot ()
+```
+
+## Spline biplot
+
+Are linear axes a good representation when the transformation from $\mathbf{X}:n \times p$ to $\mathbf{Z}:n \times 2$ is nonlinear?
+
+Replace linear regression with splines.
+
+## Spline biplot
+
+```{r, splines}
+biplot (iris[-102,1:4]) |> regress (Zmat, axes = "splines") |>  plot ()
+```
+
+## In conclusion
+
+Biplots developed since 1971.
+
+R code (SPLUS) developed since 1997.
+
+The **biplotEZ** package encapsulates the developments in a single package.
+
+Developments on **biplotEZ** are continuing
+
+* Categorical variables: Multiple correspondence analysis & Categorical PCA.
+* Shiny / plotly version for interactivity.
+* Modelling: bi-additive biplots, biplots for logistic regression.
+
+*Applying biplotEZ an R package for multi-dimensional data visualisation*
+
+Contact one of the team members or e-mail muvisu@sun.ac.za.
