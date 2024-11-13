@@ -1,5 +1,5 @@
 ## Canonical Variate Analysis (CVA) biplot
-
+::: {style="font-size: 120%;"}
 ::: fragment
 **Aim**: Dimension reduction technique that maximises variation between
 classes while minimising within class variation.
@@ -14,9 +14,10 @@ This is achieved by the following tasks:
 -   Find a linear mapping to canonical space.
 -   Find a low dimensional approximation
 :::
+:::
 
 ## Variance Decomposition
-
+::: {style="font-size: 120%;"}
 ::: fragment
 The classical variance decomposition
 $$\mathbf{T}=\mathbf{B}+\mathbf{W},$$
@@ -37,6 +38,7 @@ The choice of $\mathbf{C}$ determines the variant of CVA:
 -   Unweighted:
     $\mathbf{C}=\mathbf{I}_G - G^{-1}\mathbf{1}_G\mathbf{1}_G'$
 -   Unweighted with weighted centroid: $\mathbf{C}=\mathbf{I}_G$
+:::
 :::
 
 ## Linear Mapping
@@ -88,6 +90,7 @@ $$
 
 ## Low dimensional approximation
 
+::: {style="font-size: 120%;"}
 ::: fragment
 The first two canonical variates are given by:
 
@@ -101,10 +104,11 @@ $$\mathbf{Z}=\mathbf{X}\mathbf{M}\mathbf{J}_2. \tag{7}$$
 A new sample point, $\mathbf{x}^*$, can be added by interpolation
 $$\mathbf{z}^*=\mathbf{x}^*\mathbf{M}\mathbf{J}_2.\tag{8}$$
 :::
+:::
 
 ## `CVA` function
 
-::: fragment
+::: {data-id="box1"}
 ```{r, echo = TRUE, eval = FALSE}
 CVA()
 ```
@@ -153,7 +157,8 @@ representing the class means.
 
 ::: fragment
 ```{r Selecting the class means}
-biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3),label = TRUE) |> plot()
+biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3),label = TRUE) |> 
+  plot()
 ```
 ::::
 
@@ -182,7 +187,8 @@ class mean points:
 
 ::: fragment
 ```{r Colours and shapes}
-biplot(state.x77) |> CVA(state.region) |> means(cex = c(1,2,3,4),col = "red",pch = c(9,13,4,16)) |> plot()
+biplot(state.x77) |> CVA(state.region) |> means(cex = c(1,2,3,4), 
+    col = "red", pch = c(9,13,4,16)) |> plot()
 ```
 :::
 
@@ -211,7 +217,8 @@ accompanying the plotted class mean points:
 
 ::: fragment
 ```{r Labels}
-biplot(state.x77) |> CVA(state.region) |> means(label = TRUE,label.side = "top",label.offset = 2,label.cex = 1) |> plot()
+biplot(state.x77) |> CVA(state.region) |> means(label = TRUE, 
+  label.side = "top", label.offset = 2, label.cex = 1) |> plot()
 ```
 :::
 
@@ -245,8 +252,8 @@ elements:
 
 ::: fragment
 ```{r Classification regions }
-class.examp<-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine"))
-#class.examp$classify
+class.examp<-biplot(state.x77) |> CVA(state.region) |> 
+  classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine"))
 class.examp |> plot()
 ```
 :::
@@ -274,8 +281,9 @@ elements:
 
 ::: fragment
 ```{r Alpha bags}
-ab.examp<-biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4))
-#ab.examp$alpha.bags
+ab.examp<-biplot(state.x77) |> CVA(state.region) |> 
+  alpha.bags(alpha = c(0.85,0.9,0.95,0.99), lty = c(1,2,3,4))
+
 ab.examp |> plot()
 ```
 :::
@@ -307,8 +315,9 @@ elements:
 ::: fragment
 
 ```{r Concentration ellipses}
-kc.examp<-biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4))
-#kc.examp$conc.ellipses
+kc.examp<-biplot(state.x77) |> CVA(state.region) |> 
+  ellipses(alpha = c(0.85,0.9,0.95,0.99), lwd = c(1,2,3,4))
+
 kc.examp |> plot()
 ```
 
@@ -402,7 +411,8 @@ bp |>  plot(zoom=TRUE)
 
 ::: fragment
 ```{r One dimensional CVA biplot}
-biplot(state.x77,classes=state.region) |> CVA(dim.biplot=1) |> classify() |> plot()
+biplot(state.x77,classes=state.region) |> CVA(dim.biplot=1) |> 
+  classify() |> plot()
 ```
 :::
 
@@ -410,7 +420,8 @@ biplot(state.x77,classes=state.region) |> CVA(dim.biplot=1) |> classify() |> plo
 
 ::: fragment
 ```{r One dimensional PCA biplot}
-biplot(iris,group.aes=iris$Species) |> PCA(dim.biplot=1) |> density1D() |> ellipses() |> plot()
+biplot(iris, group.aes = iris$Species) |> PCA(dim.biplot = 1) |> 
+  density1D() |> ellipses() |> plot()
 ```
 :::
 
@@ -427,7 +438,7 @@ a 3D biplot. The `plot()` function makes use of the `RGL` device for the
 
 
 ```{r 3D biplot iris}
-biplot(iris) |> PCA(group.aes = iris[,5],dim.biplot = 3)|> plot()
+biplot(iris) |> PCA(group.aes = iris[,5], dim.biplot = 3)|> plot()
 ```
 :::
 
@@ -436,7 +447,8 @@ biplot(iris) |> PCA(group.aes = iris[,5],dim.biplot = 3)|> plot()
 ::: fragment 
 ### 3D biplot of the `state.x77` data with class means 
 ```{r 3D biplot statex77}
-biplot(state.x77) |> CVA(classes = state.region,dim.biplot = 3) |> means(col = "red",cex = 5) |> plot()
+biplot(state.x77) |> CVA(classes = state.region,dim.biplot = 3) |> 
+  means(col = "red", cex = 5) |> plot()
 ```
 
 

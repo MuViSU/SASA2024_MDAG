@@ -140,7 +140,7 @@ $$ \text{svd}(\mathbf{S}) = \mathbf{U\Lambda V'}$$
 
 ## `CA` function
 
-::: fragment
+::: {data-id="box1"}
 ```{r, echo = TRUE, eval = FALSE}
 CA()
 ```

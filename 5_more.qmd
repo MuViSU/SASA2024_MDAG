@@ -1,8 +1,10 @@
 ## More biplots
 
+::: {style="font-size: 120%;"}
 -   CVA biplots for two classes
 -   Regression biplot
 -   Spline biplot
+:::
 
 ## CVA biplots for two classes
 
@@ -110,7 +112,7 @@ biplot (iris[-102,1:4]) |> regress (Zmat, axes = "splines") |>  plot ()
 ```
 
 ## In conclusion
-
+::: {style="font-size: 120%;"}
 Biplots developed since 1971.
 
 R code (SPLUS) developed since 1997.
@@ -126,3 +128,4 @@ Developments on **biplotEZ** are continuing
 *Applying biplotEZ an R package for multi-dimensional data visualisation*
 
 Contact one of the team members or e-mail muvisu@sun.ac.za.
+:::
