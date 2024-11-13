@@ -6,7 +6,7 @@ Biplots are valuable visualisation tools in exploratory data analysis. In its si
 
 Background: Participants should have a good working knowledge of R, and some background in multivariate statistical methods and/or data mining techniques.
 
-**Presenters**: 
+**Authors**: 
 
 Sugnet Lubbe, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Buys, Zoë-Mae Adams and Peter Manefeldt
 
