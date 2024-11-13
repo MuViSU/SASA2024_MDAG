@@ -27,13 +27,13 @@ Sugnet Lubbe, Niël le Roux, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Bu
 
 ## Getting started
 
-Ensure that you have a recently updated version of R Studio.
+Ensure that you have a recently updated version of R Studio and install the newest version of `biplotEZ`:
 
 ```
 install.packages("biplotEZ")
 ```
 
-Ideally, you install this package from GitHub:
+The development version is available on GitHub:
 
 ```
 library(devtools)
