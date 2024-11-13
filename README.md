@@ -27,7 +27,7 @@ Sugnet Lubbe, Niël le Roux, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Bu
 
 ## Getting started
 
-1. Ensure that you have a recently updated version of R Studio.
+Ensure that you have a recently updated version of R Studio.
 
 ```
 install.packages("biplotEZ")
