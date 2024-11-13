@@ -36,7 +36,7 @@ The choice of $\mathbf{C}$ determines the variant of CVA:
 -   Weighted: $\mathbf{C}=\mathbf{N}=\mathbf{G'G}$
 -   Unweighted:
     $\mathbf{C}=\mathbf{I}_G - G^{-1}\mathbf{1}_G\mathbf{1}_G'$
--   Unweighted \\w weighted centroid: $\mathbf{C}=\mathbf{I}_G$
+-   Unweighted with weighted centroid: $\mathbf{C}=\mathbf{I}_G$
 :::
 
 ## Linear Mapping
