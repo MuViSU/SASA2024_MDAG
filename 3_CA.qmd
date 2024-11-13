@@ -1,0 +1,276 @@
+## What is Correspondence Analysis?
+
+::: {style="font-size: 120%;"}
+::: incremental
+-   Aims to expose the association between two categorical variables.
+
+-   Categorical variables measure characteristics of individuals
+    (samples) in the form of finite discrete response levels (category
+    levels).
+
+-   Summarised in a two-way contingency table.
+
+-   Focus placed on nominal categorical variables - category levels with
+    no specific rank / order.
+
+-   Numerous variants of CA are available for the application to diverse
+    problems, the interested reader is referred to references in the vignettes.
+
+-   With `biplotEZ`, focus is placed on three *EZ*-to-use variants (more
+    information to follow).
+:::
+:::
+
+## Correspondence Analysis
+
+::: {style="font-size: 120%;"}
+-   Data matrix in `CA()` is different from `PCA()` and `CVA()`.
+
+-   $\mathbf{X}:r\times c$, represents the cross-tabulations of two
+    categorical variables.
+
+-   The elements of the data matrix represent the frequency of the
+    co-occurrence of two particular levels of the two variables.
+
+Consider the `HairEyeColor` data set in `R`, which summarises the hair
+and eye color of male and female statistics students. For the purpose of
+this example only the male students will be considered:
+
+```{r}
+cross_tab <- HairEyeColor[,,2]
+cross_tab
+```
+:::
+
+## Current functions for `CA()` in `biplotEZ`
+
+::: {style="font-size: 120%;"}
+-   `biplot()` `|>`
+    -   `CA()` `|>`
+    -   `interpolate()` `|>` `fit.measures()` `|>`
+    -   `samples()` `|>` `newsamples()` `|>`
+    -   `legend.type()` `|>`
+-   `plot()`
+
+Take note of the warning message:
+
+```{r, warning=TRUE}
+biplot(HairEyeColor[,,2], center = TRUE) |> CA()
+```
+:::
+
+## CA calculations
+
+::: {style="font-size: 120%;"}
+-   It is typical to express the frequencies in terms of proportions /
+    probabilities.
+
+-   Consider the correspondence matrix $\mathbf{P}$:
+
+```{r}
+P_mat <- cross_tab/sum(cross_tab)
+P_mat
+```
+:::
+
+## CA calculations
+
+::: {style="font-size: 120%;"}
+-   Row profiles (diagonal matrix) - $\mathbf{D_r}$:
+
+```{r}
+ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> CA()
+ca.out$Dr
+```
+
+-   Column profiles (diagonal matrix) - $\mathbf{D_c}$:
+
+```{r}
+ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> CA()
+ca.out$Dc
+```
+:::
+
+## CA calculations
+
+::: {style="font-size: 120%;"}
+-   Consider the independence model:
+
+$$\chi^2 = \frac{(\text{Observed freq.}-\text{Expected freq.})^2}{\text{Expected freq.}}$$
+
+-   Standardised Pearson residuals ($\mathbf{S}$):
+
+$$ \mathbf{S} = \mathbf{D_r}^{-\frac{1}{2}}(\mathbf{P}-\mathbf{rc'})\mathbf{D_c}^{-\frac{1}{2}}$$
+
+-   In terms of the weighted row and column profiles
+    ($\mathbf{D_r}^{-\frac{1}{2}}$ and $\mathbf{D_c}^{-\frac{1}{2}}$).
+
+-   The expected frequencies represented by the product of the row and
+    column profiles (\mathbf{rc'}).
+
+-   **Biplot coordinates**: singular value decomposition of
+    $\mathbf{S}$.
+
+$$ \text{svd}(\mathbf{S}) = \mathbf{U\Lambda V'}$$
+:::
+
+## biplotEZ variants
+
+::: {style="font-size: 120%;"}
+-   Variant refers to the contribution of the singular values
+    ($\Lambda$) in the biplot solution.
+
+    -   Row **principal** coordinate biplot (`default`):
+
+    $$\begin{aligned}
+    \text{Row coordinates: } \hspace{0.5 cm}&\mathbf{U\Lambda}\\ \text{Column coordinates: }\hspace{0.5 cm}& \mathbf{V}\end{aligned}$$
+
+    -   Row **standard** coordinate biplot:
+
+        $$\begin{aligned}
+        \text{Row coordinates: } \hspace{0.5 cm}&\mathbf{U}\\ \text{Column coordinates: }\hspace{0.5 cm}& \mathbf{V\Lambda}\end{aligned}$$
+
+    -   **Symmetric** Correspondence Analysis map:
+
+        $$\begin{aligned}
+        \text{Row coordinates: } \hspace{0.5 cm}&\mathbf{U\Lambda^{\frac{1}{2}}}\\ \text{Column coordinates: }\hspace{0.5 cm}& \mathbf{V\Lambda^{\frac{1}{2}}}\end{aligned}$$
+        
+:::
+
+
+## `CA` function
+
+::: {data-id="box1"}
+```{r, echo = TRUE, eval = FALSE}
+CA()
+```
+:::
+
+::: fragment
+| Argument | Description |
+|------------------|------------------------------------------------------|
+| `bp` | Object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}. |
+| `dim.biplot` | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default `2`. |
+| `e.vects` | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`. |
+| `variant` | which correspondence analysis variant, with default `"Princ"` |
+| `lambda.scal` | TRUE or FALSE: Controls stretching or shrinking of column and row distances, with default `FALSE`. |
+
+: {tbl-colwidths="\[25,75\]"}
+:::
+
+## Row principal coordinate biplot
+
+```{r}
+#| code-line-numbers: "|2|"
+biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA() |> 
+  plot()
+```
+
+## Symmetric Correspondence Analysis map
+
+```{r}
+#| code-line-numbers: "|2|"
+biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA(variant = "Symmetric") |> 
+  legend.type(samples = TRUE) |> 
+  plot()
+```
+
+## Row standard coordinate biplot
+
+```{r}
+#| code-line-numbers: "|2|"
+biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA(variant = "Stand") |> 
+  plot()
+```
+
+## Enhancing the visualisation
+
+```{r}
+#| code-line-numbers: "|2|"
+biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA(variant = "Stand", lambda.scal = TRUE) |>
+  samples(col=c("palevioletred1","purple4")) |> 
+  plot()
+```
+
+
+## New samples
+
+```{r}
+#| code-line-numbers: "|3|,|4|"
+biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Symmetric") |>  
+  samples(pch = c(0,2)) |> 
+  interpolate(newdata = HairEyeColor[,,1]) |> 
+  newsamples(col = c("orange","purple"), pch = c(15,17)) |> 
+  plot()    
+```
+
+## Fit measures
+
+::: {style="font-size: 120%;"}
+
+```{r}
+#| code-line-numbers: "|3|"
+ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA(variant = "Symmetric") |> 
+  fit.measures()
+```
+
+::: fragment 
+
+-   Quality:
+
+```{r}
+ca.out$quality
+```
+
+:::
+
+::: fragment
+
+-   Adequacy:
+
+```{r}
+ca.out$adequacy
+```
+
+:::
+
+:::
+
+## Fit measures
+
+::: {style="font-size: 120%;"}
+
+```{r}
+#| code-line-numbers: "|3|"
+ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA(variant = "Symmetric") |> 
+  fit.measures()
+```
+
+
+::: fragment
+
+-   Row predictivities:
+
+```{r}
+ca.out$row.predictivities
+```
+
+:::
+
+::: fragment
+
+-   Column predictivities:
+
+```{r}
+ca.out$col.predictivities
+```
+
+:::
+
+:::
