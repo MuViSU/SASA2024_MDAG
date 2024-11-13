@@ -33,15 +33,10 @@ The choice of $\mathbf{C}$ determines the variant of CVA:
 
 ::: fragment
 -   Weighted: $\mathbf{C}=\mathbf{N}=\mathbf{G'G}$
-<<<<<<< HEAD:3_CVA.qmd
--   Unweighted: $\mathbf{C}=\mathbf{I}_G - G^{-1}\mathbf{1}_G\mathbf{1}_G'$
--   Unweighted \\w weighted centroid: $\mathbf{C}=\mathbf{I}_G$
-=======
 -   Unweighted:
     $\mathbf{C}=\mathbf{I}_G - G^{-1}\mathbf{1}_G\mathbf{1}_G'$
 -   Unweighted with weighted centroid: $\mathbf{C}=\mathbf{I}_G$
 :::
->>>>>>> main:4_CVA.qmd
 :::
 
 ## Linear Mapping
@@ -237,13 +232,7 @@ The `classify()` function appends the biplot object with the following elements:
 
 ::: fragment
 ```{r Classification regions }
-<<<<<<< HEAD:3_CVA.qmd
-class.examp<-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine")) |> plot()
-=======
-class.examp<-biplot(state.x77) |> CVA(state.region) |> 
-  classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine"))
-class.examp |> plot()
->>>>>>> main:4_CVA.qmd
+biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine")) |> plot()
 ```
 :::
 
@@ -269,14 +258,7 @@ The `alpha.bags()` function appends the biplot object with the following element
 
 ::: fragment
 ```{r Alpha bags}
-<<<<<<< HEAD:3_CVA.qmd
-ab.examp<-biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4)) |> plot()
-=======
-ab.examp<-biplot(state.x77) |> CVA(state.region) |> 
-  alpha.bags(alpha = c(0.85,0.9,0.95,0.99), lty = c(1,2,3,4))
-
-ab.examp |> plot()
->>>>>>> main:4_CVA.qmd
+biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4)) |> plot()
 ```
 :::
 
@@ -304,14 +286,7 @@ The `ellipses()` function appends the biplot object with the following elements:
 
 ::: fragment
 ```{r Concentration ellipses}
-<<<<<<< HEAD:3_CVA.qmd
-kc.examp<-biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4)) |> plot()
-=======
-kc.examp<-biplot(state.x77) |> CVA(state.region) |> 
-  ellipses(alpha = c(0.85,0.9,0.95,0.99), lwd = c(1,2,3,4))
-
-kc.examp |> plot()
->>>>>>> main:4_CVA.qmd
+biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4)) |> plot()
 ```
 :::
 
