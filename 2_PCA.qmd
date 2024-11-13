@@ -399,21 +399,27 @@ biplot(iris)|>
 ```
 
 ## Density plots
+
 On the first group
+
 ```{r}
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
   density2D(which=1,col=c("white","purple","cyan","blue")) |> plot()
 ```
 
 ## Density plots
+
 On the second group, and adding contours 
+
 ```{r}
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
   density2D(which=2,col=c("white","purple","cyan","blue"),contours=TRUE) |> plot()
 ```
 
 ## Density plots
+
 On the third group, and changing the colour of the contours. 
+
 ```{r}
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
   density2D(which=3,col=c("white","purple","cyan","blue"),contours = TRUE,contour.col = "grey") |> plot()

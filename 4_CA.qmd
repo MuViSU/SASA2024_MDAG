@@ -14,7 +14,7 @@
     no specific rank / order.
 
 -   Numerous variants of CA are available for the application to diverse
-    problems, the interested reader is referred to: @UB2011, @BehLombardo2014.
+    problems, the interested reader is referred to references in the vignettes.
 
 -   With `biplotEZ`, focus is placed on three *EZ*-to-use variants (more
     information to follow).
@@ -76,8 +76,7 @@ P_mat
 ## CA calculations
 
 ::: {style="font-size: 120%;"}
--   Row profiles (diagonal matrix) - $\mathbf{D_r}$: *update with
-    biplotEZ*
+-   Row profiles (diagonal matrix) - $\mathbf{D_r}$:
 
 ```{r}
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> CA()
@@ -210,7 +209,9 @@ biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Symmetric") |>
 ```
 
 ## Fit measures
+
 ::: {style="font-size: 120%;"}
+
 ```{r}
 #| code-line-numbers: "|3|"
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
@@ -221,6 +222,7 @@ ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |>
 ::: fragment 
 
 -   Quality:
+
 ```{r}
 ca.out$quality
 ```
@@ -240,7 +242,9 @@ ca.out$adequacy
 :::
 
 ## Fit measures
+
 ::: {style="font-size: 120%;"}
+
 ```{r}
 #| code-line-numbers: "|3|"
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
@@ -270,5 +274,3 @@ ca.out$col.predictivities
 :::
 
 :::
-
-## References
