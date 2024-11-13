@@ -1,8 +1,7 @@
 ## Canonical Variate Analysis (CVA) biplot
 
 ::: fragment
-**Aim**: Dimension reduction technique that maximises variation between
-classes while minimising within class variation.
+**Aim**: Dimension reduction technique that maximises variation between classes while minimising within class variation.
 :::
 
 ::: fragment
@@ -18,8 +17,7 @@ This is achieved by the following tasks:
 ## Variance Decomposition
 
 ::: fragment
-The classical variance decomposition
-$$\mathbf{T}=\mathbf{B}+\mathbf{W},$$
+The classical variance decomposition $$\mathbf{T}=\mathbf{B}+\mathbf{W},$$
 :::
 
 ::: fragment
@@ -34,8 +32,7 @@ The choice of $\mathbf{C}$ determines the variant of CVA:
 
 ::: fragment
 -   Weighted: $\mathbf{C}=\mathbf{N}=\mathbf{G'G}$
--   Unweighted:
-    $\mathbf{C}=\mathbf{I}_G - G^{-1}\mathbf{1}_G\mathbf{1}_G'$
+-   Unweighted: $\mathbf{C}=\mathbf{I}_G - G^{-1}\mathbf{1}_G\mathbf{1}_G'$
 -   Unweighted \\w weighted centroid: $\mathbf{C}=\mathbf{I}_G$
 :::
 
@@ -48,14 +45,11 @@ $$\mathbf{Y}=\mathbf{X}\mathbf{M}, \tag{1}$$
 :::
 
 ::: fragment
-such that
-$$\frac{\mathbf{m}'\mathbf{B}\mathbf{m}}{\mathbf{m}'\mathbf{W}\mathbf{m}} \tag{2}$$
-is maximised s.t. $\mathbf{m}'\mathbf{W}\mathbf{m}=1$.
+such that $$\frac{\mathbf{m}'\mathbf{B}\mathbf{m}}{\mathbf{m}'\mathbf{W}\mathbf{m}} \tag{2}$$ is maximised s.t. $\mathbf{m}'\mathbf{W}\mathbf{m}=1$.
 :::
 
 ::: fragment
-It can be shown that this leads to the following equivalent eigen
-equations:
+It can be shown that this leads to the following equivalent eigen equations:
 
 $$
 \mathbf{W}^{-1}\mathbf{BM} = \mathbf{M \Lambda} \tag{3}
@@ -73,13 +67,7 @@ with $\mathbf{M'BM}= \mathbf{\Lambda}$ and $\mathbf{M'WM}= \mathbf{I}$.
 :::
 
 ::: fragment
-Since the matrix
-$\mathbf{W}^{-\frac{1}{2}} \mathbf{B} \mathbf{W}^{-\frac{1}{2}}$ is
-symmetric and positive semi-definite the eigenvalues in the matrix
-$\mathbf{\Lambda}$ are positive and ordered. The rank of
-$\mathbf{B} = min(p, G-1)$ so that only the first $rank(\mathbf{B})$
-eigenvalues are non-zero. We form the canonical variates with the
-transformation
+Since the matrix $\mathbf{W}^{-\frac{1}{2}} \mathbf{B} \mathbf{W}^{-\frac{1}{2}}$ is symmetric and positive semi-definite the eigenvalues in the matrix $\mathbf{\Lambda}$ are positive and ordered. The rank of $\mathbf{B} = min(p, G-1)$ so that only the first $rank(\mathbf{B})$ eigenvalues are non-zero. We form the canonical variates with the transformation
 
 $$
 \bar{\mathbf{Y}} = \bar{\mathbf{X}}\mathbf{M}.\tag{5}
@@ -91,15 +79,11 @@ $$
 ::: fragment
 The first two canonical variates are given by:
 
-$$\mathbf{\bar{Z}}=\mathbf{\bar{Y}}\mathbf{J}_2=\mathbf{\bar{X}}\mathbf{M}\mathbf{J}_2 \tag{6}$$
-where $\mathbf{J'}_2=[\mathbf{I}_2 \quad \mathbf{0}]$. We add the
-individual sample points with the same transformation
-$$\mathbf{Z}=\mathbf{X}\mathbf{M}\mathbf{J}_2. \tag{7}$$
+$$\mathbf{\bar{Z}}=\mathbf{\bar{Y}}\mathbf{J}_2=\mathbf{\bar{X}}\mathbf{M}\mathbf{J}_2 \tag{6}$$ where $\mathbf{J'}_2=[\mathbf{I}_2 \quad \mathbf{0}]$. We add the individual sample points with the same transformation $$\mathbf{Z}=\mathbf{X}\mathbf{M}\mathbf{J}_2. \tag{7}$$
 :::
 
 ::: fragment
-A new sample point, $\mathbf{x}^*$, can be added by interpolation
-$$\mathbf{z}^*=\mathbf{x}^*\mathbf{M}\mathbf{J}_2.\tag{8}$$
+A new sample point, $\mathbf{x}^*$, can be added by interpolation $$\mathbf{z}^*=\mathbf{x}^*\mathbf{M}\mathbf{J}_2.\tag{8}$$
 :::
 
 ## `CVA` function
@@ -112,7 +96,7 @@ CVA()
 
 ::: fragment
 | Argument | Description |
-|------------------------|------------------------------------------------|
+|-------------------------|------------------------------------------------|
 | `bp` | Object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}. |
 | `classes` | Vector of class membership. User specified, otherwise defaults to vector specified in `biplot`. |
 | `dim.biplot` | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default `2`. |
@@ -127,13 +111,12 @@ CVA()
 ## Class means
 
 ::: fragment
-The `means()` function allows the user to make adjustments to the points
-representing the class means.
+The `means()` function allows the user to make adjustments to the points representing the class means.
 :::
 
 ::: fragment
 | Argument | Description |
-|------------------------|------------------------------------------------|
+|-------------------------|------------------------------------------------|
 | `bp` | an object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}. |
 
 : {tbl-colwidths="\[25,75\]"}
@@ -145,7 +128,7 @@ representing the class means.
 
 ::: fragment
 | Argument | Description |
-|-----------------------|------------------------------------------------|
+|------------------------|------------------------------------------------|
 | `which` | a vector containing the groups or classes for which the means should be displayed, with default `bp$g`. |
 
 : {tbl-colwidths="\[25,75\]"}
@@ -155,18 +138,17 @@ representing the class means.
 ```{r Selecting the class means}
 biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3),label = TRUE) |> plot()
 ```
-::::
+:::
 
 ## Class means
 
 ### Colours and characters for the points
 
 ::: fragment
-The following arguments control the aesthetic options for the plotted
-class mean points:
+The following arguments control the aesthetic options for the plotted class mean points:
 
 | Argument | Description |
-|------------------------|------------------------------------------------|
+|-------------------------|------------------------------------------------|
 |  | the colour(s) for the means, with default as the colour of the samples. |
 | `pch` | the plotting character(s) for the means, with default `15`. |
 | `cex` | the character expansion(s) for the means, with default `1`. |
@@ -191,11 +173,10 @@ biplot(state.x77) |> CVA(state.region) |> means(cex = c(1,2,3,4),col = "red",pch
 ### Labels
 
 ::: fragment
-The following arguments control the aesthetic options for the labels
-accompanying the plotted class mean points:
+The following arguments control the aesthetic options for the labels accompanying the plotted class mean points:
 
 | Argument | Description |
-|------------------------|------------------------------------------------|
+|-------------------------|------------------------------------------------|
 | `label` | a logical value indicating whether the means should be labelled, with default `TRUE`. |
 | `label.col` | a vector of the same length as `which` with label colours for the means, with default as the colour of the means. |
 | `label.cex` | a vector of the same length as which with label text expansions for the means, with default `0.75`. |
@@ -222,15 +203,13 @@ This function creates classification regions for the CVA biplot.
 :::
 
 ::: fragment
-The `classify()` function appends the biplot object with the following
-elements:
+The `classify()` function appends the biplot object with the following elements:
 
 -   A confusion matrix from the classification into classes
 
 -   The classification accuracy rate
 
--   A logical value indicating whether classification regions are shown
-    in the biplot
+-   A logical value indicating whether classification regions are shown in the biplot
 
 -   A list of chosen aesthetics for the classification regions
 
@@ -245,9 +224,7 @@ elements:
 
 ::: fragment
 ```{r Classification regions }
-class.examp<-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine"))
-#class.examp$classify
-class.examp |> plot()
+class.examp<-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine")) |> plot()
 ```
 :::
 
@@ -256,8 +233,7 @@ class.examp |> plot()
 ::: fragment
 This function creates $\alpha$-bags
 
-The `alpha.bags()` function appends the biplot object with the following
-elements:
+The `alpha.bags()` function appends the biplot object with the following elements:
 
 -   A list of coordinates for the $\alpha$-bags for each group
 
@@ -274,9 +250,7 @@ elements:
 
 ::: fragment
 ```{r Alpha bags}
-ab.examp<-biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4))
-#ab.examp$alpha.bags
-ab.examp |> plot()
+ab.examp<-biplot(state.x77) |> CVA(state.region) |> alpha.bags(alpha = c(0.85,0.9,0.95,0.99),lty = c(1,2,3,4)) |> plot()
 ```
 :::
 
@@ -285,8 +259,7 @@ ab.examp |> plot()
 ::: fragment
 This function creates $\kappa$-ellipses
 
-The `ellipses()` function appends the biplot object with the following
-elements:
+The `ellipses()` function appends the biplot object with the following elements:
 
 -   A list of coordinates for the $\kappa$-ellipses for each group
 
@@ -297,25 +270,17 @@ elements:
 -   A vector of line widths for the $\kappa$-ellipses
 
 -   A vector of $\alpha$ values
-
 :::
 
 ## Concentration ellipses
 
+### Concentration ellipses in the CVA biplot
 
-### Concentration ellipses in the CVA biplot 
 ::: fragment
-
 ```{r Concentration ellipses}
-kc.examp<-biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4))
-#kc.examp$conc.ellipses
-kc.examp |> plot()
+kc.examp<-biplot(state.x77) |> CVA(state.region) |> ellipses(alpha = c(0.85,0.9,0.95,0.99),lwd = c(1,2,3,4)) |> plot()
 ```
-
 :::
-
-
-
 
 ## Measures of fit
 
@@ -326,8 +291,7 @@ bp <- biplot(state.x77) |> CVA(classes = state.region) |> fit.measures()
 :::
 
 ::: fragment
-Contains the following information on how well the biplot represents the
-information of the original and canonical space:
+Contains the following information on how well the biplot represents the information of the original and canonical space:
 
 -   `quality`: Quality of fit for canonical and original variables
 -   `adequacy`: Adequacy of original variables
@@ -339,9 +303,7 @@ information of the original and canonical space:
 ## Summary of measures of fit
 
 ::: fragment
-The `summary()` function prints to screen the `fit.measures` stored in
-the object of class
-[biplot]{style="font-family: 'Noto Sans Mono', monospace"}.
+The `summary()` function prints to screen the `fit.measures` stored in the object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}.
 :::
 
 ::: fragment
@@ -353,9 +315,7 @@ bp |> summary()
 ## Rotation
 
 ::: fragment
-The `rotate()` function rotates the samples and axes in the
-[biplot]{style="font-family: 'Noto Sans Mono', monospace"} by
-`rotate.degrees` degrees.
+The `rotate()` function rotates the samples and axes in the [biplot]{style="font-family: 'Noto Sans Mono', monospace"} by `rotate.degrees` degrees.
 :::
 
 ::: fragment
@@ -369,10 +329,7 @@ bp |> rotate(rotate.degrees=90)|> plot()
 ## Reflection
 
 ::: fragment
-The `reflect()` function reflects the samples and axes in the
-[biplot]{style="font-family: 'Noto Sans Mono', monospace"} along an
-axis, `x`(horisontal reflection), `y` (vertical reflection) or `xy`
-(diagonal reflection).
+The `reflect()` function reflects the samples and axes in the [biplot]{style="font-family: 'Noto Sans Mono', monospace"} along an axis, `x`(horisontal reflection), `y` (vertical reflection) or `xy` (diagonal reflection).
 :::
 
 ::: fragment
@@ -386,16 +343,14 @@ bp |> reflect(reflect.axis ="y")|> plot()
 ## The argument zoom=`TRUE` in plot()
 
 ::: fragment
-The argument `zoom=` is `FALSE` by default. If `zoom=TRUE` a new
-graphical device is launched. The user is prompted to click on the
-desired upper left hand and lower right hand corners of the zoomed in
-plot.
+The argument `zoom=` is `FALSE` by default. If `zoom=TRUE` a new graphical device is launched. The user is prompted to click on the desired upper left hand and lower right hand corners of the zoomed in plot.
 :::
 
 ::: fragment
 ```{r Using the zoom argument in plot(), echo=TRUE, eval=FALSE}
 bp |>  plot(zoom=TRUE)
 ```
+![Using the zoom argument](SASA2024_MDAG/gifs/zoom_plot.gif)
 :::
 
 ## 1 Dimensional biplot CVA of state.x77 data
@@ -416,29 +371,26 @@ biplot(iris,group.aes=iris$Species) |> PCA(dim.biplot=1) |> density1D() |> ellip
 
 ## 3 Dimensional biplots
 
-::: fragment 
-The `dim.biplot` argument can be set to `3` to allow the user to create
-a 3D biplot. The `plot()` function makes use of the `RGL` device for the
-3D display.
+::: fragment
+The `dim.biplot` argument can be set to `3` to allow the user to create a 3D biplot. The `plot()` function makes use of the `RGL` device for the 3D display.
 :::
 
 ::: fragment
 ### 3D PCA biplot of the `iris` data
 
-
 ```{r 3D biplot iris}
 biplot(iris) |> PCA(group.aes = iris[,5],dim.biplot = 3)|> plot()
 ```
+![3D PCA biplot]("SASA2024_MDAG/gifs/pca3d_plot.gif")
 :::
 
 ## 3 Dimensional biplots
 
-::: fragment 
-### 3D biplot of the `state.x77` data with class means 
+::: fragment
+### 3D biplot of the `state.x77` data with class means
+
 ```{r 3D biplot statex77}
 biplot(state.x77) |> CVA(classes = state.region,dim.biplot = 3) |> means(col = "red",cex = 5) |> plot()
 ```
-
-
-
-:::::::::::::::
+![3D CVA biplot]("SASA2024_MDAG/gifs/pca3d_plot.gif")
+:::
