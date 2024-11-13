@@ -10,9 +10,7 @@ Background: Participants should have a good working knowledge of R, and some bac
 
 Sugnet Lubbe, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Buys, Zoë-Mae Adams and Peter Manefeldt
 
-## Structure of tutorial
-
-Background: Participants should have a good working knowledge of R, and some background in multivariate statistical methods and/or data mining techniques.
+## Workshop programme
 
 | Time | Topic | Presenter |
 |------|-------|-------|
@@ -25,7 +23,7 @@ Background: Participants should have a good working knowledge of R, and some bac
 |16:40-16:50|	3D biplots| Zoë-Mae Adams |
 |16:50-17:00|	Other biplots and conclusion| Sugnet Lubbe |
 
-[MDAG workshop slides](https://MuViSU.github.io/SASA2024_MDAG/MDAG2024_biplotEZ.html)
+[MDAG workshop slides](https://MuViSU.github.io/SASA2024_MDAG/MDAG2024_biplotEZ.html){:target="_blank"}
 
 ## Getting started
 
