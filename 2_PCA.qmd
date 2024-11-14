@@ -431,7 +431,7 @@ On the third group, and changing the colour of the contours.
 #| code-line-numbers: "|3|"
 #| fig-width: 7
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
-  density2D(which = 3, col = c("white","purple","cyan","blue"), contours = TRUE,
+  density2D(which = 3, col = c("white","purple","cyan","blue"),contours = TRUE,
             contour.col = "grey") |> plot()
 ```
 

@@ -162,6 +162,7 @@ CA()
 
 ```{r}
 #| code-line-numbers: "|2|"
+#| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA() |> 
   plot()
@@ -171,8 +172,9 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 
 ```{r}
 #| code-line-numbers: "|2|"
+#| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> 
-  CA(variant = "Symmetric") |> 
+  CA(variant = "Symmetric") |> samples(cex = 1.5) |> 
   legend.type(samples = TRUE) |> 
   plot()
 ```
@@ -181,8 +183,9 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 
 ```{r}
 #| code-line-numbers: "|2|"
+#| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> 
-  CA(variant = "Stand") |> 
+  CA(variant = "Stand") |> samples(cex = 1.5) |> 
   plot()
 ```
 
@@ -190,9 +193,10 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 
 ```{r}
 #| code-line-numbers: "|2|"
+#| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA(variant = "Stand", lambda.scal = TRUE) |>
-  samples(col=c("palevioletred1","purple4")) |> 
+  samples(col=c("palevioletred1","purple4"), cex = 1.5) |> 
   plot()
 ```
 
@@ -201,23 +205,25 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 
 ```{r}
 #| code-line-numbers: "|3|,|4|"
+#| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Symmetric") |>  
-  samples(pch = c(0,2)) |> 
+  samples(pch = c(0,2), cex = 1.5) |> 
   interpolate(newdata = HairEyeColor[,,1]) |> 
-  newsamples(col = c("orange","purple"), pch = c(15,17)) |> 
+  newsamples(col = c("orange","purple"), pch = c(15,17), cex = 1.5) |> 
   plot()    
 ```
 
 ## Fit measures
 
-::: {style="font-size: 120%;"}
-
 ```{r}
 #| code-line-numbers: "|3|"
+#| fig-height: 7
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA(variant = "Symmetric") |> 
   fit.measures()
 ```
+
+::: {style="font-size: 120%;"}
 
 ::: fragment 
 
@@ -243,15 +249,15 @@ ca.out$adequacy
 
 ## Fit measures
 
-::: {style="font-size: 120%;"}
-
 ```{r}
 #| code-line-numbers: "|3|"
+#| fig-height: 7
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA(variant = "Symmetric") |> 
   fit.measures()
 ```
 
+::: {style="font-size: 120%;"}
 
 ::: fragment
 

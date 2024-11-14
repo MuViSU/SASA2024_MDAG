@@ -43,13 +43,12 @@ library(tibble)
 ```
 
 
-
 {{< include 1_intro.qmd >}}
 
 {{< include 2_PCA.qmd >}}
 
-#{{< include 3_CA.qmd >}}
+{{< include 3_CA.qmd >}}
 
-#{{< include 4_CVA.qmd >}}
+{{< include 4_CVA.qmd >}}
 
-#{{< include 5_more.qmd >}}
+{{< include 5_more.qmd >}}

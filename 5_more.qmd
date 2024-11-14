@@ -1,12 +1,14 @@
 ## More biplots
 
 ::: {style="font-size: 120%;"}
+
 -   CVA biplots for two classes
 -   Regression biplot
 -   Spline biplot
 :::
 
 ## CVA biplots for two classes
+::: {style="font-size: 120%;"}
 
 Canonical space of dimension 1.
 
@@ -34,7 +36,11 @@ Alternative option: Maximise Bhattacharyya distance. For more details see
 
 -   le Roux, N. and Gardner-Lubbe, S., 2024. A two-group canonical variate analysis biplot for an optimal display of both means and cases. *Advances in Data Analysis and Classification*, pp.1-28.
 
+:::
+
 ## CVA biplots for two classes
+
+::: {style="font-size: 120%;"}
 
 Solve $\mathbf{BM=WM\Lambda}$ where $\mathbf{M} = \begin{bmatrix}
                       \mathbf{m}_1 & \mathbf{M}_2\\
@@ -58,6 +64,7 @@ $$
                       \mathbf{m}_1 & \mathbf{M}_2\mathbf{V}\\
              \end{bmatrix}
 $$
+:::
 
 ## CVA biplots for two classes
 
@@ -68,12 +75,15 @@ biplot (iris[51:150,]) |> CVA (classes = iris[51:150,5]) |> means (cex = 2) |>
 
 ## Regression biplot
 
+::: {style="font-size: 120%;"}
 Any 2D representation of sample points, for example
-
+:::
 ```{r}
 library (MASS)
 Zmat <- sammon (dist(iris[-102,1:4], method = "manhattan"))$points
 ```
+
+::: {style="font-size: 120%;"}
 
 To create a biplot we need to add information on the variables.
 
@@ -92,6 +102,7 @@ $$
 $$
 \mathbf{B = (X'X)}^{-1}\mathbf{X'Z}
 $$
+:::
 
 ## Regression biplot
 
@@ -101,9 +112,12 @@ biplot (iris[-102,]) |> regress (Zmat) |>  plot ()
 
 ## Spline biplot
 
+::: {style="font-size: 120%;"}
+
 Are linear axes a good representation when the transformation from $\mathbf{X}:n \times p$ to $\mathbf{Z}:n \times 2$ is nonlinear?
 
 Replace linear regression with splines.
+:::
 
 ## Spline biplot
 
