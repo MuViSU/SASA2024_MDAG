@@ -22,6 +22,7 @@ Sugnet Lubbe, Niël le Roux, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Bu
 |16:50-17:00|	Other biplots and conclusion| Sugnet Lubbe |
 
 <a href="https://MuViSU.github.io/SASA2024_MDAG/MDAG2024_biplotEZ.html" target="_blank">MDAG workshop slides</a>
+
 <a href="https://github.com/MuViSU/SASA2024_MDAG/tree/52b027180dfb2a64dba6202bacf4caf4bf835408/scripts" target="_blank">MDAG workshop script files</a>
 
 ## Getting started
