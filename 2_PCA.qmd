@@ -79,16 +79,32 @@
 :::
 :::
 
+## First step to create a biplot {auto-animate="true"}
 
-## First step to create a biplot {auto-animate=true auto-animate-easing="ease-in-out"}
-::: {data-id="box1"}
+```{r, echo = TRUE, eval = FALSE}
+#| out-width: 100%
+biplot()
+```
+
+## First step to create a biplot {auto-animate="true"}
+
+```{r, echo = TRUE, eval = FALSE}
+#| out-width: 100%
+biplot(data = iris,
+       )
+```
+
+## First step to create a biplot {auto-animate="true"}
+
 ```{r, echo = TRUE, eval = TRUE}
 #| out-width: 100%
-biplot(data = iris, 
-       group.aes = iris[,5],
-       Title = "My first biplot")
+#| output-location: fragment
+biplot(data = iris,
+       group.aes = iris[,5], 
+       Title = "My first biplot"
+       )
 ```
-:::
+
 
 ::: fragment 
 | Argument | Description |
@@ -160,6 +176,7 @@ biplot(iris) |> PCA() |> samples(col = "blue",opacity = 0.5) |> axes(which = NUL
 ```
 :::
 
+
 ## Representing variables
 ::: fragment
 The columns of ${\bf{X}}$ are approximated by the first two rows of
@@ -184,13 +201,22 @@ The arrows representing the variables in the data can be calibrated to
 display marker points analogous to ordinary scatterplots.
 :::
 
-## PCA biplot
+## PCA biplot {auto-animate="true"}
+
+```{r eval=FALSE, echo=TRUE}
+biplot(data = iris, group.aes = iris[,5],
+       Title = "My first biplot")
+```
+
+## PCA biplot {auto-animate="true"}
 
 ```{r}
-biplot(data = iris, 
-       group.aes = iris[,5],
-       Title = "My first biplot") |> PCA() |> plot()
+biplot(data = iris, group.aes = iris[,5],
+       Title = "My first biplot") |> 
+  PCA() |> 
+  plot()
 ```
+
 
 ## Aesthetics: `samples()`
 
@@ -204,11 +230,6 @@ biplot(iris, group.aes = iris[,5]) |>
   samples(col = c("orange","purple","gold"), pch = c(15,1,17), cex = 1.2, 
           opacity = 0.6) |> plot()
 ```
-
-::: {style="font-size: 70%;"}
-Notice that aesthetics in samples are applied to `group.aes` argument
-specified. Here there are three groups.
-:::
 
 ## Aesthetics: `samples()`
 

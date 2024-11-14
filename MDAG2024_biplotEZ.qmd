@@ -8,7 +8,6 @@ format:
     theme: [serif, MDAG_biplotEZ.scss]
     slide-number: true
     logo: logo.png
-    footer: <a href="https://github.com/MuViSU/SASA2024_MDAG" target="_blank">https://github.com/MuViSU/SASA2024_MDAG</a>
 title-slide-attributes: 
   data-background-color: rgb(255,255,255)
   data-background-image: "SU_vertical.jpg"

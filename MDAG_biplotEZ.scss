@@ -121,18 +121,8 @@ h1 {
   max-height: unset !important;
 }
 
-.reveal {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;    /* Center vertically */
-  height: 100vh;          /* Full viewport height */
-}
-
-.reveal .slides {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
-  width: 100%;
+.reveal .slides section {
+  margin-bottom: 10px; /* Decrease the space between fragments */
 }
 
 .bibliography {
