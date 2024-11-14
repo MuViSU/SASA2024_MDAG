@@ -117,7 +117,164 @@ biplot(data = iris,
 | `Title` | Title of the biplot to be rendered. |
 :::
 
-## Type of biplot: PCA
+
+## Theory behind constructing a PCA biplot
+
+::: columns
+::: {.column width="50%"}
+Data: ${\bf{X}}$
+
+```{r echo=FALSE}
+X <- as.data.frame(matrix(c(13.5471	,	12.6356	,	21.7779	,
+                            7.8248	,	4.4579	,	8.4648,
+                            15.3202	,	5.433	,	20.4339	,
+                            16.9528	,	11.8832 ,	21.8291,
+                            18.3664	,	14.733	,	28.2576,
+                            18.0205	,	9.36	,	25.1894,
+                            17.5986	,	13.0341	,	21.5221	,
+                            13.6643	,	11.2316	,	13.9913,
+                            19.3081	,	11.7703	,	28.3937	,
+                            17.7739	,	12.4688	,	19.3321,
+                            20.3395	,	10.98	,	23.1621	,
+                            15.7187	,	14.7718	,	18.7206	,
+                            11.6222	,	17.9957	,	21.4343,
+                            14.4965	,	15.3002	,	20.6371	,
+                            20.2114	,	8.0871	,	22.4164,
+                            19.5328	,	11.8101	,	22.1391,
+                            16.1871	,	10.0019	,	16.2823,
+                            17.5598	,	10.0402	,	20.3788,
+                            17.2416	,	13.5807	,	25.4979,
+                            16.2913	,	14.9305	,	22.9105,
+                            17.7401	,	15.5304	,	22.6354,
+                            8.5554	,	12.2874	,	12.9827,
+                            11.1397	,	12.4292	,	18.0374,
+                            11.993	,	13.4574	,	21.6548,
+                            10.7568	,	6.6412	,	17.6931), nrow=25,ncol=3,byrow=T))
+
+X = rbind(X[1:15,]/2.5,X[1:10,]/2.2)
+colnames(X) <- c("X1","X2","X3")
+X
+```
+:::
+
+::: {.column width="50%"}
+![](figures/Data_in3d.png){height="300,fig-align=\"center\""}
+:::
+:::
+
+## Theory behind constructing a PCA biplot
+::: {style="font-size: 120%;"}
+
+::: columns
+::: {.column width="60%"}
+::: fragment
+Geometrically the rows of ${\bf{X}}$ are given as coordinates of $n$ samples in the $p$-dimensional space $\mathbb{R}^p$.
+:::
+
+::: fragment
+The aim is to seek an $r$-dimensional plane that contains the points whose coordinates are given by the rows of ${\bf{\hat{X}}}_{[r]}$ which minimises a least squares criterion given by, \begin{equation}
+|| {\bf{X}} - {\bf{\hat{X}}}_{[r]}||^2 = tr\{({\bf{X}} - {\bf{\hat{X}}}_{[r]})({\bf{X}} - {\bf{\hat{X}}}_{[r]})'\}.
+\end{equation}
+:::
+:::
+
+::: {.column width="40%"}
+::: fragment
+![](figures/Pointsonplane.png){height="400,fig-align=\"center\""}
+:::
+:::
+:::
+
+::: fragment
+The best approximation that minimises the least squares criterion is the $r$-dimensional Eckart-Young approximation given by ${\bf{\hat{X}}}_{[r]} = {\bf{U}} {\bf{D}}_{[r]} {\bf{V}}'$
+:::
+
+:::
+
+## Representing samples
+
+::: {style="font-size: 120%;"}
+
+::: columns
+::: {.column width="60%"}
+::: fragment
+A standard result when $r=2$ from \citep{gower1995biplots} is that the row vectors of ${\bf{\hat{X}}}_{[2]}$ are the orthogonal projections of the corresponding row vectors of ${\bf{X}}$ onto the column space of ${\bf{V}}_2$. The projections are therefore,
+
+\begin{equation}
+{\bf{X}} {\bf{V}}_2.
+\end{equation} These projections are also known as the first two principal components.
+:::
+:::
+
+::: {.column width="40%"}
+::: fragment
+```{r echo=FALSE}
+biplot(X) |> PCA() |> samples(label=TRUE,col="blue",opacity = 0.6) |> axes(which=NULL) |> plot()
+```
+
+:::
+:::
+:::
+:::
+
+## Representing variables
+
+::: {style="font-size: 120%;"}
+
+The columns of ${\bf{X}}$ are approximated by the first two rows of ${\bf{V}}$, which now represent the axes for each variable.
+
+```{r echo=FALSE}
+#| fig-height: 7
+bp <- biplot(X) |> PCA() |> samples(label=TRUE,col="blue",opacity = 0.6) |> axes(which=NULL) |> plot()
+arrows(0,0,bp$Vr[1,1]*3,bp$Vr[1,2]*3,length=0.08)
+arrows(0,0,bp$Vr[2,1]*3,bp$Vr[2,2]*3,length=0.08)
+arrows(0,0,bp$Vr[3,1]*3,bp$Vr[3,2]*3,length=0.08)
+```
+
+:::
+
+## Calibrated biplot axes
+::: {style="font-size: 120%;"}
+We have constructed a biplot, but the variables represented by the vectors (arrows) have no calibration.
+
+That meaning, there are no markers on the vectors representing the variables analogous to ordinary scatterplots.
+
+To construct a biplot axis with relevant markers for a variable, a $(p-1)$-dimensional hyperplane $\mathscr{N}$ perpendicular to the Cartesian axis is required.
+
+:::
+## First plane
+
+
+From the data, $p = 3$ therefore, a two-dimensional hyperplane is constructed perpendicular to $X_1$ through a specific value of $X_1$, say $\mu$.
+
+The intersection of $\mathscr{L}$ and $\mathscr{N}$ is an $(r-1)$-dimensional intersection space, which in this case will be indicated by a line. All the points on this intersection line in $\mathscr{L}$ will predict the value for $\mu$ for the $X_1$-axis.
+
+![](figures/First_Nplane.png){fig-align="center"}
+
+
+## Second plane
+
+The plane $\mathscr{N}$ is shifted orthogonally through another value on $X_1$ and all the points on the intersection line of $\mathscr{L}$ and $\mathscr{N}$ will predict that value that the plane goes through.
+
+![](figures/Second_Nplane.png){fig-align="center"}
+
+## Intersection lines
+::: {style="font-size: 120%;"}
+::: columns
+::: {.column width="60%"}
+As the plane $\mathscr{N}$ is shifted along the $X_1$-axis, a series of parallel intersection spaces is obtained.
+
+Any line passing through the origin will pass through these intersection spaces and can be used as an axis fitted with markers according to the value associated with the particular intersection space.
+
+To facilitate orthogonal projection onto the axis, similar to an ordinary scatterplot, the line orthogonal to these intersection spaces is chosen.
+:::
+
+::: {.column width="40%"}
+![](figures/Intersection_lines.png){fig-align="center"}
+:::
+:::
+:::
+## `PCA` function
 ::: fragment
 ```{r, echo = TRUE, eval = FALSE}
 PCA()
@@ -137,69 +294,15 @@ PCA()
 : {tbl-colwidths="\[25,75\]"}
 
 :::
-## Construction of PCA biplot
 
-::: fragment 
--   Consider a data matrix ${\bf{X}}^*$ of size $n \times p$.
--   Using the Iris data as an example, there are $n=150$ observations
-    measured across $p=4$ variables.
 
-:::
 
-::: fragment
+## Data 
 
 ```{r}
 tibble(iris)
 ```
-:::
 
-::: incremental
--   To produce a biplot, we need to optimally approximate
-    ${\bf{X}} = ({\bf{I}}_n - \frac{1}{n}{\bf{11}}'){\bf{X}}^*$.
--   We want to minimise $min || {\hat{\bf{X}}} - {\bf{X}}||^2$.
--   The best approximation that minimises the least squares criterion is
-    the $r$-dimensional Eckart-Young approximation given by
-    ${\bf{\hat{X}}}_{[r]} = {\bf{U}} {\bf{D}}_{[r]} {\bf{V}}'$.
-:::
-
-## Representing samples
-::: fragment
-A standard result when $r = 2$ is that the row vectors of
-${\bf{\hat{X}}}_{[2]}$ are the orthogonal projects of the corresponding
-row vectors of ${\bf{X}}$ onto the column space of ${\bf{V}}_2$. These projections are also known as the first two principal components.
-:::
-
-::: fragment
-```{r,echo=FALSE}
-#| fig-height: 7
-biplot(iris) |> PCA() |> samples(col = "blue",opacity = 0.5) |> axes(which = NULL) |> plot()
-```
-:::
-
-
-## Representing variables
-::: fragment
-The columns of ${\bf{X}}$ are approximated by the first two rows of
-${\bf{V}}$, which now represent the axes for each variable.
-:::
-
-::: fragment
-```{r,echo=FALSE}
-#| fig-height: 7
-bp <- biplot(iris) |> PCA() |> samples(col = "blue", opacity = 0.5) |> 
-  axes(which = NULL) |> plot()
-V <- bp$V
-arrows(0,0,V[1,1],V[1,2],length = 0.05)
-arrows(0,0,V[2,1],V[2,2],length = 0.05)
-arrows(0,0,V[3,1],V[3,2],length = 0.05)
-arrows(0,0,V[4,1],V[4,2],length = 0.05)
-```
-:::
-
-::: fragment
-The arrows representing the variables in the data can be calibrated to
-display marker points analogous to ordinary scatterplots.
-:::
 
 ## PCA biplot {auto-animate="true"}
 
