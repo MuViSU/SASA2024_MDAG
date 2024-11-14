@@ -1,5 +1,6 @@
 ## Introduction
 
+::: {style="font-size: 120%;"}
 <br><br>
 
 The **biplotEZ** package aims to provide users with *EZier* software to construct biplots.
@@ -13,16 +14,17 @@ Visualisation of multi-dimensional data in 2 or 3 dimensions.
 <br><br>
 
 A brief history of biplots and **biplotEZ**.
+:::
 
 ## History (1)
 
-1971
+**1971**
 
 Gabriel, K.R., The biplot graphic display of matrices with application to principal component analysis. *Biometrika*, 58(3), pp.453-467.
 
 <br>
 
-1976
+**1976**
 
 Prof Niël J le Roux presents a seminar on biplots.
 
@@ -32,7 +34,7 @@ Prof Niël J le Roux presents a seminar on biplots.
 
 ## History (2)
 
-1996
+**1996**
 
 John Gower publish **Biplots** with David Hand.
 
@@ -44,13 +46,13 @@ Rika Cilliers obtains her Masters on biplots for socio-economic progress under P
 
 <br>
 
-1997
+**1997**
 
 ![](figures/Rlogo.jpg){width="33"} SASA conference paper: S-PLUS FUNCTIONS FOR INTERACTIVE LINEAR AND NON-LINEAR BIPLOTS by SP van Blerk, NJ le Roux & S Gardner.
 
 ## History (3)
 
-2001
+**2001**
 
 Sugnet Gardner (Lubbe) obtains her PhD on biplots under Prof le Roux.
 
@@ -60,23 +62,23 @@ Louise Wood obtains her Masters on biplots for socio-economic development under 
 
 <br>
 
-2003: Adele Bothma obtains her Masters on biplots for school results under Prof le Roux.
+**2003**: Adele Bothma obtains her Masters on biplots for school results under Prof le Roux.
 
-2007: Idele Walters obtains her Masters on biplots for exploring the gender gap under Prof le Roux.
+**2007**: Idele Walters obtains her Masters on biplots for exploring the gender gap under Prof le Roux.
 
-2008: Ryan Wedlake obtains his Masters on robust biplots under Prof le Roux.
+**2008**: Ryan Wedlake obtains his Masters on robust biplots under Prof le Roux.
 
 <br> <br> <br>
 
 ## History (4)
 
-2009
+**2009**
 
 ![](figures/Rlogo.jpg){width="33"} BiplotGUI for Interactive Biplots, Anthony le Grange.
 
-2010: André Mostert obtains his Masters on biplots in industry under Prof le Roux.
+**2010**: André Mostert obtains his Masters on biplots in industry under Prof le Roux.
 
-2011
+**2011**
 
 John Gower, Sugnet Lubbe and Niël le Roux publish **Understanding Biplots**.
 
@@ -86,17 +88,17 @@ John Gower, Sugnet Lubbe and Niël le Roux publish **Understanding Biplots**.
 
 ## History (5)
 
-2013: Hilmarie Brand obtains her Masters on PCA and CVA biplots under Prof le Roux.
+**2013**: Hilmarie Brand obtains her Masters on PCA and CVA biplots under Prof le Roux.
 
-2014: Opeoluwe Oyedele obtains her PhD on Partial Least Squares biplots under Sugnet Lubbe.
+**2014**: Opeoluwe Oyedele obtains her PhD on Partial Least Squares biplots under Sugnet Lubbe.
 
-2015: Ruan Rossouw obtains his PhD on using biplots for multivariate process monitoring under Prof le Roux.
+**2015**: Ruan Rossouw obtains his PhD on using biplots for multivariate process monitoring under Prof le Roux.
 
-2016: Ben Gurr obtains his Masters on biplots for crime data under Prof le Roux.
+**2016**: Ben Gurr obtains his Masters on biplots for crime data under Prof le Roux.
 
 <br>
 
-2019
+**2019**
 
 Johané Nienkemper-Swanepoel obtains her PhD on MCA biplots under Prof le Roux and Sugnet Lubbe.
 
@@ -110,7 +112,7 @@ Carel van der Merwe obtains his PhD using biplots. Carel supervises 4 Master's p
 
 ## History (6)
 
-2020
+**2020**
 
 Raeesa Ganey obtains her PhD on Principal Surface Biplots under Sugnet Lubbe.
 
@@ -120,7 +122,7 @@ André Mostert obtains his PhD on multidimensional scaling for identification of
 
 Adriaan Rowen obtains his Masters using biplots to understand black-box machine learning models.
 
-2022
+**2022**
 
 Zoë-Mae Adams obtains her Masters on biplots in sentiment classification under Johané Nienkemper-Swanepoel.
 
@@ -128,11 +130,11 @@ Zoë-Mae Adams obtains her Masters on biplots in sentiment classification under 
 
 ## History (7)
 
-2023
+**2023**
 
 ![](figures/Rlogo.jpg){width="33"} bipl5 for Exploding Biplots, Ruan Buys.
 
-2024
+**2024**
 
 Ruan Buys obtains his Masters on Exploding biplots under Carel van der Merwe.
 
@@ -146,7 +148,7 @@ Peter Manefeldt to submit his Masters using multidimensional scaling for interpr
 
 ## The Team
 
-:::::::::: masonry
+::: masonry
 ::: item
 <img src="photos\SL.jpg" alt="Photo 1"/>
 :::
@@ -174,8 +176,9 @@ Peter Manefeldt to submit his Masters using multidimensional scaling for interpr
 ::: item
 <img src="photos\PM.jpg" alt="Photo 7"/>
 :::
-::::::::::
+:::
 
+```{=html}
 <style>
 .masonry {
   display: grid;
@@ -192,4 +195,4 @@ Peter Manefeldt to submit his Masters using multidimensional scaling for interpr
   height: auto;
 }
 </style>
-
+```

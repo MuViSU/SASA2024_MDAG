@@ -1,0 +1,13 @@
+## Representing samples
+::: fragment
+A standard result when $r = 2$ is that the row vectors of
+${\bf{\hat{X}}}_{[2]}$ are the orthogonal projects of the corresponding
+row vectors of ${\bf{X}}$ onto the column space of ${\bf{V}}_2$. These projections are also known as the first two principal components.
+:::
+
+::: fragment
+```{r,echo=FALSE}
+#| fig-height: 7
+biplot(iris) |> PCA() |> samples(col = "blue",opacity = 0.5) |> axes(which = NULL) |> plot()
+```
+:::

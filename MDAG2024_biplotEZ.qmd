@@ -43,6 +43,7 @@ library(biplotEZ)
 library(tibble)
 ```
 
+#{{< include 0_test.qmd >}}
 
 {{< include 1_intro.qmd >}}
 
