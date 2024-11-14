@@ -19,91 +19,65 @@
 :::
 :::
 
-## Flow of functions in biplotEZ {auto-animate=true auto-animate-easing="ease-in-out"}
+## Flow of functions in biplotEZ
+::: {style="font-size: 120%;"}
+::: {style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;"}
 
-<div class="fragment" style="display: flex; justify-content: space-between;   display: flex;
-  justify-content: center;
-  align-items: center;">
-
-<div style="flex: 1; padding: 10px;">
+<!-- Main Function Column -->
+<div class="fragment" style="text-align: left;">
 **Main Function**
+
+`biplot()`
 </div>
 
+<!-- Types of Biplot Column -->
+<div class="fragment" style="text-align: left;">
+**Type of Biplot**
 
-
-<div class="fragment" style="flex: 1; padding: 10px;">
-**Types of Biplot (1, 2, and 3 dimensions)**
-
-
+`PCA()`  
+`CVA()`  
+`PCO()`  
+`CA()`
 </div>
 
-<div class="fragment" style="flex: 1; padding: 10px;">
+<!-- Operations Column -->
+<div class="fragment" style="text-align: left;">
 **Operations**
 
+`prediction()`  
+`interpolate()`  
+`translate()`  
+`density()`  
+`fit.measures()`  
+`classify()`  
+`alpha.bags()`  
+`ellipses()`  
+`rotate()`  
+`reflect()`  
+`zoom()`  
+`regress()`  
+`splines()`
 </div>
 
-<div class="fragment" style="flex: 1; padding: 10px;">
-**Aesthetic Functions**
+<!-- Aesthetic Functions Column -->
+<div class="fragment" style="text-align: left;">
+**Aesthetics**
 
+`samples()`  
+`axes()`  
+`newsamples()`  
+`newaxes()`
 </div>
 
-<div class="fragment" style="flex: 1; padding: 10px;">
+<!-- Plotting Column -->
+<div class="fragment" style="text-align: left;">
 **Plotting**
 
+`plot()`
 </div>
 
-</div>
-
-<div class="fragment" style="display: flex; justify-content: space-between;   display: flex;
-  justify-content: center;
-  align-items: center;">
-
-<div data-id="box1" style="flex: 1; padding: 10px;">
- `biplot()`
-</div>
-
-
-
-<div class="fragment" style="flex: 1; padding: 10px;">
-
-`PCA()` <br>
-`CVA()` <br>
-`PCO()` <br>
-`CA()`
-
-</div>
-
-<div class="fragment" style="flex: 1; padding: 10px;   display: flex; justify-content: center; align-items: center;">
-
-`prediction()` <br>
-`interpolate()` <br>
-`translate()` <br>
-`density()` <br>
- `fit.measures()` <br>
- `classify()` <br>
- `alpha.bags()` <br>
- `ellipses()` <br>
- `rotate()` <br>
- `reflect()` <br>
- `zoom()` <br>
- `regress()` <br>
- `splines()`
-</div>
-
-<div class="fragment" style="flex: 1; padding: 10px;">
-
- `samples()` <br>
- `axes()`
- `newsamples()`
- `newaxes()`
-</div>
-
-<div class="fragment" style="flex: 1; padding: 10px;">
-
- `plot()`
-</div>
-
-</div>
+:::
+:::
 
 
 ## First step to create a biplot {auto-animate=true auto-animate-easing="ease-in-out"}
