@@ -14,7 +14,7 @@ Sugnet Lubbe, Niël le Roux, Johané Nienkemper-Swanepoel, Raeesa Ganey, Ruan Bu
 |------|-------|-------|
 |14:00-14:05|	Introduction| Sugnet Lubbe |
 |14:05-15:05|	Principal component analysis biplots| Raeesa Ganey and Ruan Buys|
-|15:05-15:30|	Correspondence Analysis biplots| Johané Nienkemper-Swanepoel |
+|15:05-15:30|	Correspondence analysis biplots| Johané Nienkemper-Swanepoel |
 |15:30-16:00|	BREAK|
 |16:00-16:30|	Canonical variate analysis biplots| Zoë-Mae Adams and Peter Manefeldt |
 |16:30-16:40|	1D biplots| Peter Manefeldt |
@@ -38,6 +38,9 @@ library(devtools)
 devtools::install_github("MuViSU/biplotEZ")
 ```
 
+## Additional information and vignettes
+
+<a href="https://cran.r-project.org/web/packages/biplotEZ/index.html" target="_blank">CRAN link</a>
 
 ## Reporting
 
