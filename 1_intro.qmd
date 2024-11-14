@@ -146,53 +146,47 @@ Peter Manefeldt to submit his Masters using multidimensional scaling for interpr
 
 <img src="photos\PM.jpg" alt="Photo PM_hist" width="15%"/>
 
+
 ## The Team
 
-::: masonry
-::: item
-<img src="photos\SL.jpg" alt="Photo 1"/>
-:::
-
-::: item
-<img src="photos\NJLR.jpg" alt="Photo 2"/>
-:::
-
-::: item
-<img src="photos\JNS.jpg" alt="Photo 3"/>
-:::
-
-::: item
-<img src="photos\RG.jpg" alt="Photo 4"/>
-:::
-
-::: item
-<img src="photos\RB.jpg" alt="Photo 5"/>
-:::
-
-::: item
-<img src="photos\ZA.jpg" alt="Photo 6"/>
-:::
-
-::: item
-<img src="photos\PM.jpg" alt="Photo 7"/>
-:::
-:::
-
-```{=html}
+::: {=html}
 <style>
-.masonry {
+.grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: auto auto;         /* 2 rows */
   gap: 10px;
+  grid-template-areas: 
+    "img1 img2 img3 img4"  /* Top row: 4 images */
+    "img5 img6 img7 .";    /* Bottom row: 3 images with empty space */
 }
 
-.item {
-  break-inside: avoid;
-}
-
-.item img {
+.grid-item {
   width: 100%;
   height: auto;
 }
+
+.img1 { grid-area: img1; }
+.img2 { grid-area: img2; }
+.img3 { grid-area: img3; }
+.img4 { grid-area: img4; }
+.img5 { grid-area: img5; }
+.img6 { grid-area: img6; }
+.img7 { grid-area: img7; }
 </style>
-```
+:::
+
+<div class="grid-container">
+  <div class="grid-item img1"><img src="photos/SL.jpg" alt="Photo 1"/></div>
+  <div class="grid-item img2"><img src="photos/NJLR.jpg" alt="Photo 2"/></div>
+  <div class="grid-item img3"><img src="photos/JNS.jpg" alt="Photo 3"/></div>
+  <div class="grid-item img4"><img src="photos/RG.jpg" alt="Photo 4"/></div>
+
+  <div class="grid-item img5"><img src="photos/RB.jpg" alt="Photo 5"/></div>
+  <div class="grid-item img6"><img src="photos/ZA.jpg" alt="Photo 6"/></div>
+  <div class="grid-item img7"><img src="photos/PM.jpg" alt="Photo 7"/></div>
+</div>
+
+
+
+
