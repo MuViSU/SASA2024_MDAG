@@ -73,7 +73,7 @@ with $\mathbf{M'BM}= \mathbf{\Lambda}$ and $\mathbf{M'WM}= \mathbf{I}$.
 Since the matrix $\mathbf{W}^{-\frac{1}{2}} \mathbf{B} \mathbf{W}^{-\frac{1}{2}}$ is symmetric and positive semi-definite the eigenvalues in the matrix $\mathbf{\Lambda}$ are positive and ordered. The rank of $\mathbf{B} = min(p, G-1)$ so that only the first $rank(\mathbf{B})$ eigenvalues are non-zero. We form the canonical variates with the transformation
 
 $$
-\bar{\mathbf{Y}} = \bar{\mathbf{X}}\mathbf{M}.\tag{5}
+\bar{\mathbf{Y}} = \bar{\mathbf{X}}\mathbf{M}.\tag{6}
 $$
 :::
 
@@ -83,11 +83,11 @@ $$
 ::: fragment
 The first two canonical variates are given by:
 
-$$\mathbf{\bar{Z}}=\mathbf{\bar{Y}}\mathbf{J}_2=\mathbf{\bar{X}}\mathbf{M}\mathbf{J}_2 \tag{6}$$ where $\mathbf{J'}_2=[\mathbf{I}_2 \quad \mathbf{0}]$. We add the individual sample points with the same transformation $$\mathbf{Z}=\mathbf{X}\mathbf{M}\mathbf{J}_2. \tag{7}$$
+$$\mathbf{\bar{Z}}=\mathbf{\bar{Y}}\mathbf{J}_2=\mathbf{\bar{X}}\mathbf{M}\mathbf{J}_2 \tag{7}$$ where $\mathbf{J'}_2=[\mathbf{I}_2 \quad \mathbf{0}]$. We add the individual sample points with the same transformation $$\mathbf{Z}=\mathbf{X}\mathbf{M}\mathbf{J}_2. \tag{8}$$
 :::
 
 ::: fragment
-A new sample point, $\mathbf{x}^*$, can be added by interpolation $$\mathbf{z}^*=\mathbf{x}^*\mathbf{M}\mathbf{J}_2.\tag{8}$$
+A new sample point, $\mathbf{x}^*$, can be added by interpolation $$\mathbf{z}^*=\mathbf{x}^*\mathbf{M}\mathbf{J}_2.\tag{9}$$
 :::
 :::
 
@@ -130,8 +130,8 @@ The `means()` function allows the user to make adjustments to the points represe
 
 ::: fragment
 ```{r Selecting the class means}
-biplot(state.x77) |> CVA(state.region) |> 
-  means(which = c(2,3), label = TRUE) |> plot()
+biplot(state.x77) |> CVA(state.region) |> means(which = c(2,3), 
+  label = TRUE) |> plot()
 ```
 :::
 
@@ -159,7 +159,7 @@ The following arguments control the aesthetic options for the plotted class mean
 
 ::: fragment
 ```{r Colours and shapes}
-#| fig-height: 7
+#| fig-height: 6
 biplot(state.x77) |> CVA(state.region) |> means(cex = c(1,2,3,4), 
     col = "red", pch = c(9,13,4,16)) |> plot()
 ```
@@ -189,13 +189,14 @@ The following arguments control the aesthetic options for the labels accompanyin
 
 ::: fragment
 ```{r Labels}
-#| fig-height: 7
+#| fig-height: 6
 biplot(state.x77) |> CVA(state.region) |> means(label = TRUE, 
   label.side = "top", label.offset = 2, label.cex = 1) |> plot()
 ```
 :::
 
 ## Classification regions
+
 ::: {style="font-size: 120%;"}
 
 ::: fragment
@@ -215,6 +216,7 @@ The `classify()` function appends the biplot object with the following elements:
 
 -   The midpoints of the classification regions
 :::
+:::
 
 ## Classification regions
 
@@ -223,12 +225,12 @@ The `classify()` function appends the biplot object with the following elements:
 :::
 
 ::: fragment
-```{r Classification regions }
-#| fig-height: 7
-biplot(state.x77) |> CVA(state.region) |> classify(col = c("cornflowerblue","darkolivegreen3","darkgoldenrod","aquamarine")) |> plot()
+```{r Classification regions , warning = FALSE}
+#| fig-height: 6
+biplot(state.x77) |> 
+  CVA(state.region) |> classify(col=c("cornflowerblue","darkolivegreen3",
+  "darkgoldenrod","aquamarine")) |> plot()
 ```
-:::
-
 :::
 
 ## $\alpha$-bags containing a percentage of observations
@@ -256,6 +258,7 @@ The `alpha.bags()` function appends the biplot object with the following element
 
 ::: fragment
 ```{r Alpha bags}
+#| fig-height: 5.5
 biplot(state.x77) |> CVA(state.region) |> 
   alpha.bags(alpha = c(0.85,0.9,0.95,0.99), lty = c(1,2,3,4)) |> plot()
 ```
@@ -285,6 +288,7 @@ The `ellipses()` function appends the biplot object with the following elements:
 
 ::: fragment
 ```{r Concentration ellipses}
+#| fig-height: 5.5
 biplot(state.x77) |> CVA(state.region) |> 
   ellipses(alpha = c(0.85,0.9,0.95,0.99), lwd = c(1,2,3,4)) |> plot()
 ```
@@ -294,6 +298,7 @@ biplot(state.x77) |> CVA(state.region) |>
 
 ::: fragment
 ```{r Using the fit.measures() function}
+#| fig-height: 6
 bp <- biplot(state.x77) |> CVA(classes = state.region) |> fit.measures()
 ```
 :::
@@ -411,7 +416,7 @@ The `dim.biplot` argument can be set to `3` to allow the user to create a 3D bip
 ::: fragment
 ### 3D PCA biplot of the `iris` data
 
-```{r 3D biplot iris}
+```{r 3D biplot iris, eval=FALSE}
 biplot(iris) |> PCA(group.aes = iris[,5], dim.biplot = 3)|> plot()
 ```
 ![3D PCA biplot](gifs/pca3d_plot.gif)
@@ -422,7 +427,7 @@ biplot(iris) |> PCA(group.aes = iris[,5], dim.biplot = 3)|> plot()
 ::: fragment
 ### 3D biplot of the `state.x77` data with class means
 
-```{r 3D biplot statex77}
+```{r 3D biplot statex77, eval=FALSE}
 biplot(state.x77) |> CVA(classes = state.region,dim.biplot = 3) |> 
   means(col = "red", cex = 5) |> plot()
 ```

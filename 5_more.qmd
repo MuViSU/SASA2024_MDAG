@@ -69,6 +69,7 @@ $$
 ## CVA biplots for two classes
 
 ```{r, CVA2class}
+#| fig-height: 7
 biplot (iris[51:150,]) |> CVA (classes = iris[51:150,5]) |> means (cex = 2) |>
   axes (label.dir = "Hor", label.line = c(0.8, 0, 0, 0)) |> plot ()
 ```
@@ -107,6 +108,7 @@ $$
 ## Regression biplot
 
 ```{r, regression}
+#| fig-height: 7
 biplot (iris[-102,]) |> regress (Zmat) |>  plot ()
 ```
 
@@ -122,6 +124,7 @@ Replace linear regression with splines.
 ## Spline biplot
 
 ```{r, splines}
+#| fig-height: 7
 biplot (iris[-102,1:4]) |> regress (Zmat, axes = "splines") |>  plot ()
 ```
 

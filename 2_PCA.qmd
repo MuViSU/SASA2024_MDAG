@@ -236,7 +236,7 @@ A standard result when $r=2$ from \citep{gower1995biplots} is that the row vecto
 The columns of ${\bf{X}}$ are approximated by the first two rows of ${\bf{V}}$, which now represent the axes for each variable.
 
 ```{r echo=FALSE}
-#| fig-height: 7
+#| fig-height: 6
 bp <- biplot(X) |> PCA() |> samples(label=TRUE,col="blue",opacity = 0.6) |> axes(which=NULL) |> plot()
 arrows(0,0,bp$Vr[1,1]*3,bp$Vr[1,2]*3,length=0.08)
 arrows(0,0,bp$Vr[2,1]*3,bp$Vr[2,2]*3,length=0.08)
@@ -327,7 +327,7 @@ biplot(data = iris, group.aes = iris[,5],
 
 ```{r}
 #| output-location: fragment
-#| fig-width: 7
+#| fig-height: 6
 biplot(data = iris, group.aes = iris[,5],
        Title = "My first biplot") |> 
   PCA() |> 
@@ -429,7 +429,7 @@ samples.
 
 ```{r}
 #| output-location: fragment
-#| fig-width: 7
+#| fig-height: 6
 biplot(iris, group.aes = iris[,5]) |> 
   PCA() |> 
   samples(col = c("orange","purple","gold"), pch = c(15,1,17), cex = 1.2, 
@@ -444,7 +444,7 @@ Select certain groups, and add labels to the samples
 ```{r}
 #| code-line-numbers: "3|"
 #| output-location: fragment
-#| fig-width: 7
+#| fig-height: 6
 biplot(iris, group.aes = iris[,5]) |> 
   PCA() |> 
   samples(which = c(1,2), col = c("orange","purple"), label = TRUE) |> 
@@ -483,8 +483,8 @@ biplot(iris[,1:4]) |> PCA() |>
 Change the colour and line width of the axes
 
 ```{r}
-#| fig-width: 7
 #| output-location: fragment
+#| fig-height: 6
 biplot(iris[,1:4]) |> PCA() |> 
   samples(col = "grey", opacity = 0.5) |>
   axes(col = "rosybrown", label.dir = "Orthog", lwd = 2) |> 
@@ -497,8 +497,8 @@ Show the first two axes with vector representation and unit circle
 
 ```{r}
 #| code-line-numbers: "3|"
-#| fig-width: 7
 #| output-location: fragment
+#| fig-height: 6
 biplot(iris[,1:4]) |> PCA() |> 
   samples(col = "grey", opacity = 0.5) |>
   axes(which = 1:2, col = "rosybrown", vectors = TRUE, unit.circle = TRUE) |> 
@@ -628,7 +628,6 @@ biplot(iris[,1:4]) |> PCA() |>
 ### `prediction()` 
 
 ```{r eval = FALSE, echo =TRUE}
-#| fig-width: 7
 out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
 ```
@@ -638,7 +637,6 @@ out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |>
 ### `prediction()` 
 
 ```{r eval = FALSE, echo =TRUE}
-#| fig-width: 7
 out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.samples = c(1:2,51:52,101:102) )|>
@@ -651,7 +649,7 @@ out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |>
 
 ```{r}
 #| output-location: fragment
-#| fig-width: 7
+#| fig-height: 6
 out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.samples = c(1:2,51:52,101:102) )|>
@@ -664,8 +662,8 @@ Predict only on the variable `Sepal.Length`: use the `which` argument.
 
 ```{r}
 #| code-line-numbers: "3|"
-#| fig-width: 7
 #| output-location: fragment
+#| fig-height: 6
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.samples = c(1:2,51:52,101:102), which = "Sepal.Length")|>
@@ -676,8 +674,8 @@ biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |>
 
 ```{r}
 #| code-line-numbers: "1|3|4|"
-#| fig-width: 7
 #| output-location: fragment
+#| fig-height: 6
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA(show.class.means = TRUE) |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.means = TRUE) |>
@@ -693,14 +691,14 @@ summary(out)
 ## Interpolation of samples {auto-animate="true"}
 
 ```{r eval = FALSE, echo=TRUE}
-#| fig-width: 7
+#| fig-height: 7
 biplot(iris[1:100,]) |> PCA() |> 
 ```
 
 ## Interpolation of samples {auto-animate="true"}
 
 ```{r eval = FALSE, echo=TRUE}
-#| fig-width: 7
+#| fig-height: 7
 biplot(iris[1:100,]) |> PCA() |> 
   interpolate (newdata = iris[101:150,]) |> 
 ```
@@ -708,7 +706,7 @@ biplot(iris[1:100,]) |> PCA() |>
 ## Interpolation of samples {auto-animate="true"}
 
 ```{r}
-#| fig-width: 7
+#| fig-height: 7
 #| output-location: fragment
 biplot(iris[1:100,]) |> PCA() |> 
   interpolate (newdata = iris[101:150,]) |> 
@@ -719,7 +717,7 @@ biplot(iris[1:100,]) |> PCA() |>
 
 ```{r}
 #| code-line-numbers: "2|3|"
-#| fig-width: 7
+#| fig-height: 7
 #| output-location: fragment
 biplot(iris[,1:3]) |> PCA() |> 
     interpolate(newdata = NULL, newvariable = iris[,4]) |> 
@@ -733,11 +731,11 @@ plot.
 
 ```{r}
 #| code-line-numbers: "3|"
-#| fig-width: 7
+#| fig-height: 6
 #| output-location: fragment
 biplot(iris)|> 
       PCA(group.aes = iris[,5]) |> 
-      translate_axes(swop=TRUE, delta = 0.2)|> plot(exp.factor = 3)
+      translate_axes(swop = TRUE, delta = 0.2)|> plot(exp.factor = 3)
 ```
 
 ## Density plots {auto-animate="true"}
@@ -745,8 +743,7 @@ biplot(iris)|>
 On the first group
 
 ```{r eval =FALSE, echo=TRUE}
-#| fig-width: 7
-biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
+biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
 ```
 
 ## Density plots {auto-animate="true"}
@@ -754,8 +751,7 @@ biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |>
 On the first group
 
 ```{r}
-#| output-location: fragment
-#| fig-width: 7
+#| fig-height: 7
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
   density2D(which = 1, col = c("white","purple","cyan","blue")) |> plot()
 ```
@@ -766,8 +762,7 @@ On the second group, and adding contours
 
 ```{r}
 #| code-line-numbers: "2|3|"
-#| fig-width: 7
-#| output-location: fragment
+#| fig-height: 7
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   density2D(which = 2, col = c("white","purple","cyan","blue"),
             contours = TRUE) |> plot()
@@ -779,7 +774,7 @@ On the third group, and changing the colour of the contours.
 
 ```{r}
 #| code-line-numbers: "|3|"
-#| fig-width: 7
+#| fig-height: 7
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
   density2D(which = 3, col = c("white","purple","cyan","blue"),contours = TRUE,
             contour.col = "grey") |> plot()

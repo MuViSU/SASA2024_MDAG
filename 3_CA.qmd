@@ -174,9 +174,8 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 #| code-line-numbers: "|2|"
 #| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> 
-  CA(variant = "Symmetric") |> samples(cex = 1.5) |> 
-  legend.type(samples = TRUE) |> 
-  plot()
+  CA(variant = "Symmetric") |> samples(col = c("darkmagenta", "forestgreen"), 
+  cex = 1.7, opacity = 0.7) |> legend.type(samples = TRUE) |> plot()
 ```
 
 ## Row standard coordinate biplot
@@ -184,8 +183,8 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 ```{r}
 #| code-line-numbers: "|2|"
 #| fig-height: 7
-biplot(HairEyeColor[,,2], center = FALSE) |> 
-  CA(variant = "Stand") |> samples(cex = 1.5) |> 
+biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Stand") |> 
+  samples(col = c("darkmagenta", "forestgreen"), cex = 1.7, opacity = 0.7) |> 
   plot()
 ```
 
@@ -196,7 +195,7 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 #| fig-height: 7
 biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA(variant = "Stand", lambda.scal = TRUE) |>
-  samples(col=c("palevioletred1","purple4"), cex = 1.5) |> 
+  samples(col=c("palevioletred3","purple4"), cex = 1.7, opacity = 0.7) |> 
   plot()
 ```
 
@@ -209,7 +208,7 @@ biplot(HairEyeColor[,,2], center = FALSE) |>
 biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Symmetric") |>  
   samples(pch = c(0,2), cex = 1.5) |> 
   interpolate(newdata = HairEyeColor[,,1]) |> 
-  newsamples(col = c("orange","purple"), pch = c(15,17), cex = 1.5) |> 
+  newsamples(col = c("orange","purple"), pch = c(15,17), cex = 1.7) |> 
   plot()    
 ```
 
