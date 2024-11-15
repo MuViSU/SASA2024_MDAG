@@ -24,32 +24,53 @@
 ::: {style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;"}
 
 <!-- Main Function Column -->
-<div class="fragment" style="text-align: left;">
+<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
 **Main Function**
-
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
 `biplot()`
+</div>
 </div>
 
 <!-- Types of Biplot Column -->
-<div class="fragment" style="text-align: left;">
+<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
 **Type of Biplot**
-
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
 `PCA()`  
-`CVA()`  
+`CVA()`<br>
 `PCO()`  
 `CA()`
 </div>
+</div>
+
+<!-- Aesthetic Functions Column -->
+<div class="fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Aesthetics**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`samples()`  
+`axes()`
+`newsamples()`  
+`newaxes()`
+</div>
+</div>
 
 <!-- Operations Column -->
-<div class="fragment" style="text-align: left;">
+<div class="fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
 **Operations**
-
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
 `prediction()`  
 `interpolate()`  
 `translate()`  
 `density()`  
 `fit.measures()`  
-`classify()`  
+`classify()`
 `alpha.bags()`  
 `ellipses()`  
 `rotate()`  
@@ -58,22 +79,15 @@
 `regress()`  
 `splines()`
 </div>
-
-<!-- Aesthetic Functions Column -->
-<div class="fragment" style="text-align: left;">
-**Aesthetics**
-
-`samples()`  
-`axes()`  
-`newsamples()`  
-`newaxes()`
 </div>
 
-<!-- Plotting Column -->
-<div class="fragment" style="text-align: left;">
+<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
 **Plotting**
-
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
 `plot()`
+</div>
 </div>
 
 :::
@@ -208,12 +222,10 @@ A standard result when $r=2$ from \citep{gower1995biplots} is that the row vecto
 
 ::: {.column width="40%"}
 ::: fragment
-```{r echo=FALSE}
-biplot(X) |> PCA() |> samples(label=TRUE,col="blue",opacity = 0.6) |> axes(which=NULL) |> plot()
-```
+![](figures/scatterponts.png){height="400,fig-align=\"center\""}
+:::
+:::
 
-:::
-:::
 :::
 :::
 
@@ -308,12 +320,14 @@ tibble(iris)
 
 ```{r eval=FALSE, echo=TRUE}
 biplot(data = iris, group.aes = iris[,5],
-       Title = "My first biplot")
+       Title = "My first biplot") |>
 ```
 
 ## PCA biplot {auto-animate="true"}
 
 ```{r}
+#| output-location: fragment
+#| fig-width: 7
 biplot(data = iris, group.aes = iris[,5],
        Title = "My first biplot") |> 
   PCA() |> 
@@ -321,17 +335,106 @@ biplot(data = iris, group.aes = iris[,5],
 ```
 
 
-## Aesthetics: `samples()`
+## Flow of functions in biplotEZ
+::: {style="font-size: 120%;"}
+::: {style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;"}
+
+<!-- Main Function Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Main Function**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`biplot()`
+</div>
+</div>
+
+<!-- Types of Biplot Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Type of Biplot**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`PCA()`  
+`CVA()`<br>
+`PCO()`  
+`CA()`
+</div>
+</div>
+
+<!-- Aesthetic Functions Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Aesthetics**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`samples()`  
+`axes()`
+`newsamples()`  
+`newaxes()`
+</div>
+</div>
+
+<!-- Operations Column -->
+<div style="text-align: left; display: flex; flex-direction: column; opacity: 0.3;">
+<div>
+**Operations**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`prediction()`  
+`interpolate()`  
+`translate()`  
+`density()`  
+`fit.measures()`  
+`classify()`
+`alpha.bags()`  
+`ellipses()`  
+`rotate()`  
+`reflect()`  
+`zoom()`  
+`regress()`  
+`splines()`
+</div>
+</div>
+
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Plotting**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`plot()`
+</div>
+</div>
+
+:::
+:::
+
+
+## Aesthetics: `samples()` {auto-animate="true"}
+
+Change the colour, plotting character and character expansion of the
+samples.
+
+```{r eval=FALSE, echo=TRUE}
+  samples(col = c("orange","purple","gold"), pch = c(15,1,17), cex = 1.2, 
+          opacity = 0.6) |> 
+```
+
+
+
+## Aesthetics: `samples()` {auto-animate="true"}
 
 Change the colour, plotting character and character expansion of the
 samples.
 
 ```{r}
-#| code-line-numbers: "|3|4|"
+#| output-location: fragment
+#| fig-width: 7
 biplot(iris, group.aes = iris[,5]) |> 
   PCA() |> 
   samples(col = c("orange","purple","gold"), pch = c(15,1,17), cex = 1.2, 
-          opacity = 0.6) |> plot()
+          opacity = 0.6) |> 
+  plot()
 ```
 
 ## Aesthetics: `samples()`
@@ -339,7 +442,8 @@ biplot(iris, group.aes = iris[,5]) |>
 Select certain groups, and add labels to the samples
 
 ```{r}
-#| code-line-numbers: "|3|"
+#| code-line-numbers: "3|"
+#| output-location: fragment
 #| fig-width: 7
 biplot(iris, group.aes = iris[,5]) |> 
   PCA() |> 
@@ -362,15 +466,29 @@ biplot(iris, group.aes = iris[,5]) |>
 | `connect.lty` | Line type of the connecting line |
 | `connect.lwd` | Line width of the connecting line |
 
-## Aesthetics: `axes()`
+
+
+## Aesthetics: `axes()` {auto-animate="true"}
+
+Change the colour and line width of the axes
+
+```{r eval=FALSE, echo = TRUE}
+#| output-location: fragment
+biplot(iris[,1:4]) |> PCA() |> 
+  samples(col = "grey", opacity = 0.5) |>
+```
+
+## Aesthetics: `axes()` {auto-animate="true"}
 
 Change the colour and line width of the axes
 
 ```{r}
-#| code-line-numbers: "|2|"
-#| #| fig-width: 7
-biplot(iris[,1:4]) |> PCA() |> samples(col = "grey", opacity = 0.5) |>
-  axes(col = "rosybrown", label.dir = "Orthog", lwd = 2) |> plot()
+#| fig-width: 7
+#| output-location: fragment
+biplot(iris[,1:4]) |> PCA() |> 
+  samples(col = "grey", opacity = 0.5) |>
+  axes(col = "rosybrown", label.dir = "Orthog", lwd = 2) |> 
+  plot()
 ```
 
 ## Aesthetics: `axes()`
@@ -378,9 +496,11 @@ biplot(iris[,1:4]) |> PCA() |> samples(col = "grey", opacity = 0.5) |>
 Show the first two axes with vector representation and unit circle
 
 ```{r}
-#| code-line-numbers: "|2|"
-#| #| fig-width: 7
-biplot(iris[,1:4]) |> PCA() |> samples(col = "grey", opacity = 0.5) |>
+#| code-line-numbers: "3|"
+#| fig-width: 7
+#| output-location: fragment
+biplot(iris[,1:4]) |> PCA() |> 
+  samples(col = "grey", opacity = 0.5) |>
   axes(which = 1:2, col = "rosybrown", vectors = TRUE, unit.circle = TRUE) |> 
   plot()
 ```
@@ -427,13 +547,111 @@ biplot(iris[,1:4]) |> PCA() |> samples(col = "grey", opacity = 0.5) |>
 :::
 :::::
 
-## Prediction of samples
+
+## Flow of functions in biplotEZ
+::: {style="font-size: 120%;"}
+::: {style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;"}
+
+<!-- Main Function Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Main Function**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`biplot()`
+</div>
+</div>
+
+<!-- Types of Biplot Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Type of Biplot**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`PCA()`  
+`CVA()`<br>
+`PCO()`  
+`CA()`
+</div>
+</div>
+
+<!-- Aesthetic Functions Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Aesthetics**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`samples()`  
+`axes()`
+`newsamples()`  
+`newaxes()`
+</div>
+</div>
+
+<!-- Operations Column -->
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Operations**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`prediction()`  
+`interpolate()`  
+`translate()`  
+`density()`  
+`fit.measures()`  
+`classify()`
+`alpha.bags()`  
+`ellipses()`  
+`rotate()`  
+`reflect()`  
+`zoom()`  
+`regress()`  
+`splines()`
+</div>
+</div>
+
+<div style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Plotting**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`plot()`
+</div>
+</div>
+
+:::
+:::
+
+
+## Prediction of samples {auto-animate="true"}
+
+### `prediction()` 
+
+```{r eval = FALSE, echo =TRUE}
+#| fig-width: 7
+out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
+  samples(col = c("orange","purple","gold"), opacity = 0.5) |>
+```
+
+## Prediction of samples {auto-animate="true"}
+
+### `prediction()` 
+
+```{r eval = FALSE, echo =TRUE}
+#| fig-width: 7
+out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
+  samples(col = c("orange","purple","gold"), opacity = 0.5) |>
+  prediction(predict.samples = c(1:2,51:52,101:102) )|>
+```
+
+
+## Prediction of samples {auto-animate="true"}
 
 ### `prediction()`
 
 ```{r}
-#| code-line-numbers: "|3|4|"
-#| #| fig-width: 7
+#| output-location: fragment
+#| fig-width: 7
 out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.samples = c(1:2,51:52,101:102) )|>
@@ -445,8 +663,9 @@ out <- biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |>
 Predict only on the variable `Sepal.Length`: use the `which` argument.
 
 ```{r}
-#| code-line-numbers: "|3|"
-#| #| fig-width: 7
+#| code-line-numbers: "3|"
+#| fig-width: 7
+#| output-location: fragment
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.samples = c(1:2,51:52,101:102), which = "Sepal.Length")|>
@@ -456,8 +675,9 @@ biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |>
 ## Prediction of group means
 
 ```{r}
-#| code-line-numbers: "|1|3|"
-#| #| fig-width: 7
+#| code-line-numbers: "1|3|4|"
+#| fig-width: 7
+#| output-location: fragment
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA(show.class.means = TRUE) |> 
   samples(col = c("orange","purple","gold"), opacity = 0.5) |>
   prediction(predict.means = TRUE) |>
@@ -470,11 +690,26 @@ biplot(iris[,1:4], group.aes = iris[,5]) |> PCA(show.class.means = TRUE) |>
 summary(out)
 ```
 
-## Interpolation of samples
+## Interpolation of samples {auto-animate="true"}
+
+```{r eval = FALSE, echo=TRUE}
+#| fig-width: 7
+biplot(iris[1:100,]) |> PCA() |> 
+```
+
+## Interpolation of samples {auto-animate="true"}
+
+```{r eval = FALSE, echo=TRUE}
+#| fig-width: 7
+biplot(iris[1:100,]) |> PCA() |> 
+  interpolate (newdata = iris[101:150,]) |> 
+```
+
+## Interpolation of samples {auto-animate="true"}
 
 ```{r}
-#| code-line-numbers: "|2|3|"
 #| fig-width: 7
+#| output-location: fragment
 biplot(iris[1:100,]) |> PCA() |> 
   interpolate (newdata = iris[101:150,]) |> 
   newsamples(col = "red") |> plot()
@@ -483,8 +718,9 @@ biplot(iris[1:100,]) |> PCA() |>
 ## Interpolation of axes
 
 ```{r}
-#| code-line-numbers: "|2|3|"
+#| code-line-numbers: "2|3|"
 #| fig-width: 7
+#| output-location: fragment
 biplot(iris[,1:3]) |> PCA() |> 
     interpolate(newdata = NULL, newvariable = iris[,4]) |> 
     newaxes(X.new.names = "Petal.Width") |> plot()
@@ -496,19 +732,29 @@ Automatically or manually translate the axes away from the center of the
 plot.
 
 ```{r}
-#| code-line-numbers: "|3|"
+#| code-line-numbers: "3|"
 #| fig-width: 7
+#| output-location: fragment
 biplot(iris)|> 
       PCA(group.aes = iris[,5]) |> 
       translate_axes(swop=TRUE, delta = 0.2)|> plot(exp.factor = 3)
 ```
 
-## Density plots
+## Density plots {auto-animate="true"}
+
+On the first group
+
+```{r eval =FALSE, echo=TRUE}
+#| fig-width: 7
+biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
+```
+
+## Density plots {auto-animate="true"}
 
 On the first group
 
 ```{r}
-#| code-line-numbers: "|2|"
+#| output-location: fragment
 #| fig-width: 7
 biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |> 
   density2D(which = 1, col = c("white","purple","cyan","blue")) |> plot()
@@ -519,8 +765,9 @@ biplot(iris[,1:4],group.aes = iris[,5]) |> PCA() |>
 On the second group, and adding contours 
 
 ```{r}
-#| code-line-numbers: "|2|3|"
+#| code-line-numbers: "2|3|"
 #| fig-width: 7
+#| output-location: fragment
 biplot(iris[,1:4], group.aes = iris[,5]) |> PCA() |> 
   density2D(which = 2, col = c("white","purple","cyan","blue"),
             contours = TRUE) |> plot()
