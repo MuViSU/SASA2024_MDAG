@@ -33,7 +33,7 @@
     co-occurrence of two particular levels of the two variables.
 
 Consider the `HairEyeColor` data set in `R`, which summarises the hair
-and eye color of male and female statistics students. For the purpose of
+and eye colour of male and female statistics students. For the purpose of
 this example only the male students will be considered:
 
 ```{r}
@@ -106,7 +106,7 @@ $$ \mathbf{S} = \mathbf{D_r}^{-\frac{1}{2}}(\mathbf{P}-\mathbf{rc'})\mathbf{D_c}
     ($\mathbf{D_r}^{-\frac{1}{2}}$ and $\mathbf{D_c}^{-\frac{1}{2}}$).
 
 -   The expected frequencies represented by the product of the row and
-    column profiles (\mathbf{rc'}).
+    column profiles ($\mathbf{rc'}$).
 
 -   **Biplot coordinates**: singular value decomposition of
     $\mathbf{S}$.
@@ -152,8 +152,8 @@ CA()
 | `bp` | Object of class [biplot]{style="font-family: 'Noto Sans Mono', monospace"}. |
 | `dim.biplot` | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default `2`. |
 | `e.vects` | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`. |
-| `variant` | which correspondence analysis variant, with default `"Princ"` |
-| `lambda.scal` | TRUE or FALSE: Controls stretching or shrinking of column and row distances, with default `FALSE`. |
+| `variant` | Which correspondence analysis variant, with default `"Princ"`. |
+| `lambda.scal` | `TRUE` or `FALSE`: Controls stretching or shrinking of column and row distances, with default `FALSE`. |
 
 : {tbl-colwidths="\[25,75\]"}
 :::
