@@ -76,14 +76,14 @@ P_mat
 ## CA calculations
 
 ::: {style="font-size: 120%;"}
--   Row profiles (diagonal matrix) - $\mathbf{D_r}$:
+-   Row masses (diagonal matrix) - $\mathbf{D_r}$:
 
 ```{r}
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> CA()
 ca.out$Dr
 ```
 
--   Column profiles (diagonal matrix) - $\mathbf{D_c}$:
+-   Column masses (diagonal matrix) - $\mathbf{D_c}$:
 
 ```{r}
 ca.out <- biplot(HairEyeColor[,,2], center = FALSE) |> CA()
@@ -102,11 +102,11 @@ $$\chi^2 = \frac{(\text{Observed freq.}-\text{Expected freq.})^2}{\text{Expected
 
 $$ \mathbf{S} = \mathbf{D_r}^{-\frac{1}{2}}(\mathbf{P}-\mathbf{rc'})\mathbf{D_c}^{-\frac{1}{2}}$$
 
--   In terms of the weighted row and column profiles
+-   In terms of the weighted row and column masses
     ($\mathbf{D_r}^{-\frac{1}{2}}$ and $\mathbf{D_c}^{-\frac{1}{2}}$).
 
 -   The expected frequencies represented by the product of the row and
-    column profiles ($\mathbf{rc'}$).
+    column masses ($\mathbf{rc'}$).
 
 -   **Biplot coordinates**: singular value decomposition of
     $\mathbf{S}$.
@@ -188,11 +188,35 @@ biplot(HairEyeColor[,,2], center = FALSE) |> CA(variant = "Stand") |>
   plot()
 ```
 
-## Enhancing the visualisation
+## Lambda scaling
+
+::: {style="font-size: 120%;"}
+The inner product is invariant when $\mathbf{A}$ and $\mathbf{B}$ are scaled inversely by $\lambda$, where $\mathbf{A}$ represents the row coordinates and $\mathbf{B}$ represents the column coordinates. 
+
+$$
+\mathbf{AB} = (\lambda\mathbf{A})(\mathbf{B}/\lambda)
+$$
+An arbitrary value of $\lambda$ can be selected or an *optimal* value could be used to ensure that the average squared distance of the points in $\lambda\mathbf{A}$ and $\mathbf{B}/\lambda$ is equal.
+
+$$
+\lambda^4 =\frac{r}{c}\frac{||\mathbf{B}||^2}{||\mathbf{A}||^2}
+$$
+
+The default setting is to not apply lambda-scaling (i.e. `lambda.scal = FALSE`).
+
+The return value is `lambda.val`.
+
+:::
+
+## Lambda scaling
 
 ```{r}
-#| code-line-numbers: "|2|"
-#| fig-height: 7
+#| code-line-numbers: "|3|7|"
+par(mfrow=c(1,2))
+biplot(HairEyeColor[,,2], center = FALSE) |> 
+  CA(variant = "Stand", lambda.scal = FALSE) |>
+  samples(col=c("palevioletred3","purple4"), cex = 1.7, opacity = 0.7) |> 
+  plot()
 biplot(HairEyeColor[,,2], center = FALSE) |> 
   CA(variant = "Stand", lambda.scal = TRUE) |>
   samples(col=c("palevioletred3","purple4"), cex = 1.7, opacity = 0.7) |> 

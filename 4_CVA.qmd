@@ -266,6 +266,7 @@ biplot(state.x77) |> CVA(state.region) |>
 
 ## Concentration ellipses
 
+::: {style="font-size: 120%;"}
 ::: fragment
 This function creates $\kappa$-ellipses
 
@@ -280,6 +281,7 @@ The `ellipses()` function appends the biplot object with the following elements:
 -   A vector of line widths for the $\kappa$-ellipses
 
 -   A vector of $\alpha$ values
+:::
 :::
 
 ## Concentration ellipses
