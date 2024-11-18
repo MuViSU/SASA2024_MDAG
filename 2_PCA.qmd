@@ -16,119 +16,9 @@
 
 -   There are different types of biplots that are based on various
     multivariate data analysus techniques.
+    
+-   The simplest type of biplot is based on Principal Component Analysis.
 :::
-:::
-
-## Flow of functions in biplotEZ
-::: {style="font-size: 120%;"}
-::: {style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;"}
-
-<!-- Main Function Column -->
-<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
-<div>
-**Main Function**
-</div>
-<div style="display: flex; align-items: center; height: 100%;">
-`biplot()`
-</div>
-</div>
-
-<!-- Types of Biplot Column -->
-<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
-<div>
-**Type of Biplot**
-</div>
-<div style="display: flex; align-items: center; height: 100%;">
-`PCA()`  
-`CVA()`<br>
-`PCO()`  
-`CA()`
-</div>
-</div>
-
-<!-- Aesthetic Functions Column -->
-<div class="fragment" style="text-align: left; display: flex; flex-direction: column;">
-<div>
-**Aesthetics**
-</div>
-<div style="display: flex; align-items: center; height: 100%;">
-`samples()`  
-`axes()`
-`newsamples()`  
-`newaxes()`
-</div>
-</div>
-
-<!-- Operations Column -->
-<div class="fragment" style="text-align: left; display: flex; flex-direction: column;">
-<div>
-**Operations**
-</div>
-<div style="display: flex; align-items: center; height: 100%;">
-`prediction()`  
-`interpolate()`  
-`translate()`  
-`density()`  
-`fit.measures()`  
-`classify()`
-`alpha.bags()`  
-`ellipses()`  
-`rotate()`  
-`reflect()`  
-`zoom()`  
-`regress()`  
-`splines()`
-</div>
-</div>
-
-<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
-<div>
-**Plotting**
-</div>
-<div style="display: flex; align-items: center; height: 100%;">
-`plot()`
-</div>
-</div>
-
-:::
-:::
-
-## First step to create a biplot {auto-animate="true"}
-
-```{r, echo = TRUE, eval = FALSE}
-#| out-width: 100%
-biplot()
-```
-
-## First step to create a biplot {auto-animate="true"}
-
-```{r, echo = TRUE, eval = FALSE}
-#| out-width: 100%
-biplot(data = iris,
-       )
-```
-
-## First step to create a biplot {auto-animate="true"}
-
-```{r, echo = TRUE, eval = TRUE}
-#| out-width: 100%
-#| output-location: fragment
-biplot(data = iris,
-       group.aes = iris[,5], 
-       Title = "My first biplot"
-       )
-```
-
-
-::: fragment 
-| Argument | Description |
-|-----------------|-------------------------------------------------------|
-| `data` | a dataframe or matrix containing all variables the user wants to analyse. |
-| `classes` | a vector identifying class membership. Required for CVA biplots |
-| `group.aes` | Variable from the data to be used as a grouping variable. |
-| `center` | a logical value indicating whether data should be column centered, with default TRUE. |
-| `scaled` | a logical value indicating whether data should be standardised to unit column variances, with default FALSE. |
-| `Title` | Title of the biplot to be rendered. |
 :::
 
 
@@ -286,6 +176,139 @@ To facilitate orthogonal projection onto the axis, similar to an ordinary scatte
 :::
 :::
 :::
+
+
+## PCA biplot
+With variable 1
+
+```{r echo=FALSE}
+#| fig-width: 8
+biplot(X) |> PCA() |> axes(which=1) |> plot()
+```
+
+
+## PCA biplot
+With all variables
+
+```{r echo=FALSE}
+#| fig-width: 8
+biplot(X) |> PCA() |> axes() |> plot()
+```
+
+
+## Flow of functions in biplotEZ
+::: {style="font-size: 120%;"}
+::: {style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;"}
+
+<!-- Main Function Column -->
+<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Main Function**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`biplot()`
+</div>
+</div>
+
+<!-- Types of Biplot Column -->
+<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Type of Biplot**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`PCA()`  
+`CVA()`<br>
+`PCO()`  
+`CA()`
+</div>
+</div>
+
+<!-- Aesthetic Functions Column -->
+<div class="fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Aesthetics**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`samples()`  
+`axes()`
+`newsamples()`  
+`newaxes()`
+</div>
+</div>
+
+<!-- Operations Column -->
+<div class="fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Operations**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`prediction()`  
+`interpolate()`  
+`translate()`  
+`density()`  
+`fit.measures()`  
+`classify()`
+`alpha.bags()`  
+`ellipses()`  
+`rotate()`  
+`reflect()`  
+`zoom()`  
+`regress()`  
+`splines()`
+</div>
+</div>
+
+<div class = "fragment" style="text-align: left; display: flex; flex-direction: column;">
+<div>
+**Plotting**
+</div>
+<div style="display: flex; align-items: center; height: 100%;">
+`plot()`
+</div>
+</div>
+
+:::
+:::
+
+## First step to create a biplot {auto-animate="true"}
+
+```{r, echo = TRUE, eval = FALSE}
+#| out-width: 100%
+biplot()
+```
+
+## First step to create a biplot {auto-animate="true"}
+
+```{r, echo = TRUE, eval = FALSE}
+#| out-width: 100%
+biplot(data = iris,
+       )
+```
+
+## First step to create a biplot {auto-animate="true"}
+
+```{r, echo = TRUE, eval = TRUE}
+#| out-width: 100%
+#| output-location: fragment
+biplot(data = iris,
+       group.aes = iris[,5], 
+       Title = "My first biplot"
+       )
+```
+
+
+::: fragment 
+| Argument | Description |
+|-----------------|-------------------------------------------------------|
+| `data` | a dataframe or matrix containing all variables the user wants to analyse. |
+| `classes` | a vector identifying class membership. Required for CVA biplots |
+| `group.aes` | Variable from the data to be used as a grouping variable. |
+| `center` | a logical value indicating whether data should be column centered, with default TRUE. |
+| `scaled` | a logical value indicating whether data should be standardised to unit column variances, with default FALSE. |
+| `Title` | Title of the biplot to be rendered. |
+:::
+
+
 ## `PCA` function
 ::: fragment
 ```{r, echo = TRUE, eval = FALSE}
