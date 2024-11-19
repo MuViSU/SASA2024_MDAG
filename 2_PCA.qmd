@@ -15,7 +15,7 @@
     both samples and variables can be displayed graphically.
 
 -   There are different types of biplots that are based on various
-    multivariate data analysus techniques.
+    multivariate data analysis techniques.
     
 -   The simplest type of biplot is based on Principal Component Analysis.
 :::
@@ -324,7 +324,7 @@ PCA()
 | `e.vects` | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`. |
 | `group.aes` | If not specified in `biplot()` |
 | `show.class.means` | `TRUE` or `FALSE`: Indicating whether group means should be plotted in the biplot, with default `FALSE`.|
-| `correlation.biplot` | `TRUE` or `FALSE`: Indicating whether distances or correlations between the variables are optimally approximated, with defautl `FALSE`. |
+| `correlation.biplot` | `TRUE` or `FALSE`: Indicating whether distances or correlations between the variables are optimally approximated, with default `FALSE`. |
 
 : {tbl-colwidths="\[25,75\]"}
 

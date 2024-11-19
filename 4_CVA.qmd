@@ -107,7 +107,7 @@ CVA()
 | `dim.biplot` | Dimension of the biplot. Only values 1, 2 and 3 are accepted, with default `2`. |
 | `e.vects` | Which eigenvectors (principal components) to extract, with default `1:dim.biplot`. |
 | `weightedCVA` | "weighted" or "unweightedCent" or "unweightedI": Controls which type of CVA to perform, with default `"weighted"` |
-| `show.class.means` | TRUE or FALSE: Controls whether class means are plotted, with default `TRUE`. |
+| `show.class.means` | `TRUE` or `FALSE`: Controls whether class means are plotted, with default `TRUE`. |
 | `low.dim` | `"sample.opt"` or `"Bhattacharyya.dist"`: Controls method of constructing additional dimension(s) if `dim.biplot` is greater than the number of classes, with default `"sample.opt"`. |
 
 : {tbl-colwidths="\[25,75\]"}
@@ -356,7 +356,7 @@ bp |> rotate(rotate.degrees=90)|> plot()
 ::: {style="font-size: 120%;"}
 
 ::: fragment
-The `reflect()` function reflects the samples and axes in the [biplot]{style="font-family: 'Noto Sans Mono', monospace"} along an axis, `x`(horisontal reflection), `y` (vertical reflection) or `xy` (diagonal reflection).
+The `reflect()` function reflects the samples and axes in the [biplot]{style="font-family: 'Noto Sans Mono', monospace"} along an axis, `x`(horizontal reflection), `y` (vertical reflection) or `xy` (diagonal reflection).
 :::
 :::
 
@@ -373,7 +373,7 @@ bp |> reflect(reflect.axis ="y")|> plot()
 ::: {style="font-size: 120%;"}
 
 ::: fragment
-The argument `zoom=` is `FALSE` by default. If `zoom=TRUE` a new graphical device is launched. The user is prompted to click on the desired upper left hand and lower right hand corners of the zoomed in plot.
+The argument `zoom=FALSE` by default. If `zoom=TRUE` a new graphical device is launched. The user is prompted to click on the desired upper left hand and lower right hand corners of the zoomed in plot.
 :::
 
 :::
@@ -433,5 +433,5 @@ biplot(iris) |> PCA(group.aes = iris[,5], dim.biplot = 3)|> plot()
 biplot(state.x77) |> CVA(classes = state.region,dim.biplot = 3) |> 
   means(col = "red", cex = 5) |> plot()
 ```
-![3D CVA biplot](gifs/pca3d_plot.gif)
+![3D CVA biplot](gifs/cva3d_plot.gif)
 :::

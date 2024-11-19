@@ -109,7 +109,7 @@ $$
 
 ```{r, regression}
 #| fig-height: 7
-biplot (iris[-102,]) |> regress (Zmat) |>  plot ()
+biplot(iris[-102,]) |> regress(Zmat) |>  plot()
 ```
 
 ## Spline biplot
@@ -125,7 +125,7 @@ Replace linear regression with splines.
 
 ```{r, splines}
 #| fig-height: 7
-biplot (iris[-102,1:4]) |> regress (Zmat, axes = "splines") |>  plot ()
+biplot(iris[-102,1:4]) |> regress(Zmat, axes = "splines") |>  plot()
 ```
 
 ## In conclusion
